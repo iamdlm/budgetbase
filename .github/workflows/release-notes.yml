@@ -1,0 +1,31 @@
+name: release
+
+on: 
+  milestone:
+    types: [closed]
+
+jobs:
+  create-release-notes:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: Generate Release Notes
+      uses: Decathlon/release-notes-generator-action@v3.1.6
+      env:
+        GITHUB_TOKEN: ${{ secrets.USER_TOKEN }}
+    - name: Create Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.USER_TOKEN }}
+      run: |
+        # Get milestone number from event payload
+        milestone_number=$(jq --raw-output .milestone.number "$GITHUB_EVENT_PATH")
+        # Get milestone title from event payload
+        milestone_title=$(jq --raw-output .milestone.title "$GITHUB_EVENT_PATH")
+        # Get release notes from previous step
+        release_notes=$(cat ${{ github.workspace }}/release_file.md)
+        # Create release using GitHub API
+        release_data=$(echo '{}' | jq --arg tag_name "$milestone_title" --arg name "$milestone_title" --arg body "$release_notes" '. + { tag_name: $tag_name, name: $name, body: $body }')
+        response=$(curl --silent --request POST --header "Authorization: token $GITHUB_TOKEN" --header "Accept: application/vnd.github.v3+json" --url "https://api.github.com/repos/${{ github.repository }}/releases" --data "$release_data")
+        # Log response
+        echo "$response"
