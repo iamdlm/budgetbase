@@ -1,0 +1,42 @@
+﻿@page "/auth/signup"
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+    <a asp-area="" asp-page="Index"><img src="~/assets/images/logo-dark.png" class="mb-4 d-block mx-auto" alt=""></a>
+    <h5 class="mb-3 text-center">Register your account</h5>
+    <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+    <div class="form-floating mb-3">
+        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" />
+        <label asp-for="Input.Email">Email</label>
+        <span asp-validation-for="Input.Email" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
+        <label asp-for="Input.Password">Password</label>
+        <span asp-validation-for="Input.Password" class="text-danger"></span>
+    </div>
+    <div class="form-floating mb-3">
+        <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
+        <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+        <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+    </div>
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">I accept the <a asp-area="" asp-page="Terms" class="text-primary" target="_blank">Terms And Conditions</a></label>
+    </div>
+
+    <button class="btn btn-primary w-100" type="submit">Register</button>
+
+    <div class="col-12 text-center mt-3">
+        <p class="mb-0 mt-3"><small class="text-dark me-2">Already have an account ?</small> <a asp-area="Auth" asp-page="Login" class="text-dark fw-bold">Sign in</a></p>
+    </div><!--end col-->
+
+    <p class="mb-0 text-muted mt-3 text-center">© @DateTime.UtcNow.Year budgetbase.</p>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

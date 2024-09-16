@@ -1,0 +1,1 @@
+{"version":3,"sources":["landing.custom.scss"],"names":[],"mappings":"AAEQ,mCACI,QAAA,eAMR,SACI,MAAA","file":"landing.custom.min.css","sourcesContent":[".breadcrumb {\r\n    .breadcrumb-item {\r\n        &:after {\r\n            content: none!important;\r\n        }\r\n    }\r\n}\r\n\r\nfooter {\r\n    a {\r\n        color: inherit;\r\n    }\r\n}\r\n"]}

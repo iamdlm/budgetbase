@@ -1,0 +1,24 @@
+﻿@page
+@model BudgetBase.Web.Razor.Areas.App.Pages.Categories.CategoryIndexModel
+
+@{
+    ViewData["Title"] = "Categories";
+}
+
+<div class="d-md-flex justify-content-between align-items-center">
+    <h5 class="mb-0  d-none d-lg-block">@ViewData["Title"]</h5>
+
+    @await Component.InvokeAsync("Breadcrumb", new { breadcrumbModels = Model.Breadcrumbs })
+</div>
+<div class="row">
+    <div class="col-md-12 mt-4">
+        <div class="card rounded">
+            @await Component.InvokeAsync("Tabulator", new { ajaxUrl = "Categories?handler=RemoteData" })
+        </div>
+    </div>
+</div>
+@section Styles {
+    @{
+        await Html.RenderPartialAsync("_IconPickerCss");
+    }
+}

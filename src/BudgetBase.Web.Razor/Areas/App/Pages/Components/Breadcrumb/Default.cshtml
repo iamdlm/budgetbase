@@ -1,0 +1,27 @@
+﻿@using BudgetBase.Web.Razor.Areas.App.ViewModels.Components.Breadcrumbs;
+@model List<BreadcrumbViewModel>
+
+<nav aria-label="breadcrumb" class="d-inline-block mt-2 mt-sm-0">
+    <ul class="breadcrumb bg-transparent rounded mb-0 p-0">
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            var breadcrumb = Model[i];
+            <li class="breadcrumb-item text-capitalize @((i == Model.Count - 1) ? "active" : "")" @(i == Model.Count - 1 ? "aria-current=\"page\"" : null)>
+                @if (i == Model.Count - 1)
+                {
+                    <span>@breadcrumb.Title</span>
+                }
+                else
+                {
+                    <a asp-area="@breadcrumb.Area" asp-page="@breadcrumb.Action">@breadcrumb.Title</a>
+                }
+            </li>
+            @if (i != Model.Count - 1)
+            {
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                </svg>
+            }
+        }
+    </ul>
+</nav>

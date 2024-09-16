@@ -1,0 +1,163 @@
+﻿@{
+    string ajaxUrl = ViewData["AjaxUrl"].ToString();
+    string editPage = Url.Page("./Edit");
+    string detailsPage = Url.Page("./Details");
+    string deletePage = Url.Page("./Delete");
+    bool allowImport = ViewData["AllowImport"] != null ? (bool)ViewData["AllowImport"] : false;
+    bool editVisible = ViewData["EditVisible"] != null ? (bool)ViewData["EditVisible"] : true;
+    bool applyRules = ViewData["ApplyRules"] != null ? (bool)ViewData["ApplyRules"] : false;
+    string groupIdParam = Context.Request.Query["groupId"].ToString();
+    Guid groupdId = string.IsNullOrEmpty(groupIdParam) ? Guid.Empty : new Guid(groupIdParam);
+
+}
+<link href="@Url.Content("~/dist/libs/tabulator-tables/css/tabulator_bootstrap5.min.css")" rel="stylesheet">
+<link href="@Url.Content("~/dist/css/tabulator.custom.min.css")" rel="stylesheet">
+<div class="d-flex justify-content-between p-4 shadow rounded-top">
+    <div class="col-sm-12 col-md-6">
+        <a asp-page="Create" asp-route-groupId="@Context.Request.Query["groupId"]" class="btn btn-primary">Create New</a>
+        @if (allowImport)
+        {
+            <a asp-area="App" asp-page="/Imports/Index" class="btn btn-primary">Import</a>
+        }
+        @if (applyRules)
+        {
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#applyRules" class="btn btn-primary">Apply Rules</a>
+        }
+    </div>
+    <div class="col-sm-6 col-md-3 d-flex justify-content-end align-items-center ms-auto">
+        <input type="text" id="fSearch" name="fSearch" class="form-control" placeholder="Search...">
+    </div>
+</div>
+<div class="shadow">
+    <div id="tabulator" class=""></div>   
+</div>
+<div class="modal" id="applyRules" tabindex="-1" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded shadow border-0">
+            <div class="modal-body py-5">
+                <div class="text-center">
+                    <div class="icon d-flex align-items-center justify-content-center bg-soft-primary rounded-circle mx-auto" style="height: 95px; width:95px;">
+                        <h1 class="mb-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="40">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+                        </h1>
+                    </div>
+                    <div class="mt-4">
+                        <h4>Update transaction categories</h4>
+                        <p id="rules-text" class="text-muted">This will update all transaction categories that are not already set, according to the specified rules.</p>
+                        <p id="rules-status" class="text-danger hide">An error occured, please try again. If the problem persists, contact our support team.</p>
+                        <div class="mt-4">
+                            <button class="btn btn-primary" onclick="applyRules()">Continue</button>
+                            <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="@Url.Content("~/dist/libs/tabulator-tables/js/tabulator.min.js")" type="text/javascript"></script>
+<script>
+    const editPage = '@editPage';
+    const detailsPage = '@detailsPage';
+    const deletePage = '@deletePage';
+    const editVisible = '@editVisible'.toLowerCase();
+    const groupId = '@groupdId';
+
+    // handler for input field
+    const input = document.getElementById("fSearch");
+    input.addEventListener("keyup", function () {
+        table.setFilter("any", "like", input.value);
+        if (input.value == " ") {
+            table.clearFilter()
+        }
+    });
+
+    function actionsFormatter(cell, formatterParams, onRendered) {
+        const id = cell.getValue();
+
+        // Base URL construction
+        const editUrlBase = `${editPage}?id=${id}`;
+        const detailsUrlBase = `${detailsPage}?id=${id}`;
+        const deleteUrlBase = `${deletePage}?id=${id}`;
+
+        // Append groupId if it's not null or empty (Guid.Empty will be "00000000-0000-0000-0000-000000000000" as a string)
+        const editUrl = groupId !== "00000000-0000-0000-0000-000000000000" ? `${editUrlBase}&groupId=${groupId}` : editUrlBase;
+        const detailsUrl = groupId !== "00000000-0000-0000-0000-000000000000" ? `${detailsUrlBase}&groupId=${groupId}` : detailsUrlBase;
+        const deleteUrl = groupId !== "00000000-0000-0000-0000-000000000000" ? `${deleteUrlBase}&groupId=${groupId}` : deleteUrlBase;
+
+        if (editVisible == "false") {
+            return `
+                                    <a class="btn btn-icon btn-outline-success btn-sm p-2" href="${detailsUrl}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg></a>
+                                    <a class="btn btn-icon btn-outline-danger btn-sm p-2" href="${deleteUrl}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg></a>`;
+        }
+
+        return `
+                                    <a class="btn btn-icon btn-outline-success btn-sm p-2" href="${detailsUrl}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg></a>
+                                    <a class="btn btn-icon btn-outline-primary btn-sm p-2" href="${editUrl}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" /></svg></a>
+                                    <a class="btn btn-icon btn-outline-danger btn-sm p-2" href="${deleteUrl}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg></a>
+                                `;
+    }
+
+    var table = new Tabulator("#tabulator", {
+        autoColumns: true,
+        pagination: true, //enable pagination
+        paginationCounter: function (pageSize, currentRow, currentPage, totalRows, totalPages) {
+            var startRow = (currentPage - 1) * pageSize + 1;
+            var endRow = Math.min(currentPage * pageSize, totalRows);
+            return "Showing " + startRow + " to " + endRow + " of " + totalRows + " entries";
+        },
+        paginationMode: "remote", //enable remote pagination
+        sortMode: "remote",
+        filterMode: "remote",
+        ajaxURL: "@ajaxUrl", //set url for ajax request
+        ajaxParams: function () {
+            // get the visible columns
+            var visibleColumns = table.getColumns().map(function (column) {
+                return column.getField();
+            });
+
+            return {
+                "columns": visibleColumns,
+                "groupId": "@groupdId"
+            };
+        }, //set any standard parameters to pass with the request
+        paginationSize: 10, //optional parameter to request a certain number of rows per page
+        paginationInitialPage: 1, //optional parameter to set the initial page to load
+        //progressiveLoad: "scroll",
+        dataSendParams: {
+            "page": "pageNumber",
+            "size": "pageSize",
+            "filter": "filters",
+            "sort": "sorters"
+        },
+        layout: "fitColumns",
+        placeholder: "No Data Available",
+        autoColumnsDefinitions: function (definitions) {
+            //definitions - array of column definition objects
+
+            definitions.forEach((column) => {
+                column.formatter = "html";
+            });
+
+            return definitions;
+        },
+    });
+
+    table.on("dataProcessed", function (data) {
+        // Get all columns in the table
+        const columns = table.getColumns();
+
+        // Find the "Actions" column
+        const actionsColumn = columns.find(column => column._column.field === "Actions");
+
+        // If the "Actions" column exists, update its definition with the custom formatter
+        if (actionsColumn) {
+            actionsColumn.updateDefinition({
+                formatter: actionsFormatter,
+                width: 147
+            }, true);
+        }
+    });
+</script>

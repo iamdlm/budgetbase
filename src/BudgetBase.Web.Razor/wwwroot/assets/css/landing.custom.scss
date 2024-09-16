@@ -1,0 +1,13 @@
+﻿.breadcrumb {
+    .breadcrumb-item {
+        &:after {
+            content: none!important;
+        }
+    }
+}
+
+footer {
+    a {
+        color: inherit;
+    }
+}

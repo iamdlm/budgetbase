@@ -1,0 +1,18 @@
+// 
+// text.scss
+//
+
+@each $name,
+$value in $theme-colors {
+    .text-#{$name} {
+        color: #{$value} !important;
+    }
+    a {
+        &.text-#{$name} {
+            &:hover,
+            &:focus {
+                color: darken($value, 5%) !important;
+            }
+        }
+    }
+}

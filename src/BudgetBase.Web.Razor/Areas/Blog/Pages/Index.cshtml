@@ -1,0 +1,261 @@
+﻿@page "/blog"
+@{
+}
+
+<section class="bg-half-170 bg-light d-table w-100">
+    <div class="container">
+        <div class="row mt-5 justify-content-center">
+            <div class="col-lg-12 text-center">
+                <div class="pages-heading">
+                    <h4 class="title mb-0">Blog</h4>
+                </div>
+            </div>  <!--end col-->
+        </div><!--end row-->
+
+        <div class="position-breadcrumb">
+            <nav aria-label="breadcrumb" class="d-inline-block">
+                <ul class="breadcrumb rounded shadow mb-0 px-4 py-2">
+                    <li class="breadcrumb-item"><a href="~/">Home</a></li>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"></path>
+                    </svg>
+                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                </ul>
+            </nav>
+        </div>
+    </div> <!--end container-->
+</section>
+
+<div class="position-relative">
+    <div class="shape overflow-hidden text-color-white">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
+                    <div class="position-relative">
+                        <img src="assets/images/blog/placeholder.png" class="card-img-top" alt="...">
+                        <div class="overlay rounded-top"></div>
+                    </div>
+                    <div class="card-body content">
+                        <h5><a asp-area="Blog" asp-page="UltimateGuideToPersonalBudget" class="card-title title text-dark">The Ultimate Guide to <br />Creating a Personal Budget</a></h5>
+                        <div class="post-meta d-flex justify-content-between mt-3">
+                            <ul class="list-unstyled mb-0">
+                                <li class="list-inline-item me-2 mb-0">
+                                    <div class="text-muted">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        6 min read
+                                    </div>
+                                </li>
+                            </ul>
+                            <a asp-area="Blog" asp-page="UltimateGuideToPersonalBudget" class="text-muted readmore">
+                                Read More
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="10">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="author">
+                        <small class="user d-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                            Jim Simons
+                        </small>
+                        <small class="date">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
+                            26th August 2024
+                        </small>
+                    </div>
+                </div>
+            </div><!--end col-->
+
+            <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
+                    <div class="position-relative">
+                        <img src="assets/images/blog/placeholder.png" class="card-img-top" alt="...">
+                        <div class="overlay rounded-top"></div>
+                    </div>
+                    <div class="card-body content">
+                        <h5><a asp-area="Blog" asp-page="HowToFinancialGoalTracking" class="card-title title text-dark">How to Use <i>budgetbase</i> for Financial Goal Tracking</a></h5>
+                        <div class="post-meta d-flex justify-content-between mt-3">
+                            <ul class="list-unstyled mb-0">
+                                <li class="list-inline-item me-2 mb-0">
+                                    <div class="text-muted">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        4 min read
+                                    </div>
+                                </li>
+                            </ul>
+                            <a asp-area="Blog" asp-page="HowToFinancialGoalTracking" class="text-muted readmore">
+                                Read More
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="10">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="author">
+                        <small class="user d-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                            Jim Simons
+                        </small>
+                        <small class="date">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
+                            26th August 2024
+                        </small>
+                    </div>
+                </div>
+            </div><!--end col-->
+
+            <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
+                    <div class="position-relative">
+                        <img src="assets/images/blog/placeholder.png" class="card-img-top" alt="...">
+                        <div class="overlay rounded-top"></div>
+                    </div>
+                    <div class="card-body content">
+                        <h5><a asp-area="Blog" asp-page="Budgeting101" class="card-title title text-dark">Budgeting 101: Tips and Tricks for Effective Money Management</a></h5>
+                        <div class="post-meta d-flex justify-content-between mt-3">
+                            <ul class="list-unstyled mb-0">
+                                <li class="list-inline-item me-2 mb-0">
+                                    <div class="text-muted">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        5 min read
+                                    </div>
+                                </li>
+                            </ul>
+                            <a asp-area="Blog" asp-page="Budgeting101" class="text-muted readmore">
+                                Read More
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="10">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="author">
+                        <small class="user d-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                            Jim Simons
+                        </small>
+                        <small class="date">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
+                            19th August 2024
+                        </small>
+                    </div>
+                </div>
+            </div><!--end col-->
+
+            <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
+                    <div class="position-relative">
+                        <img src="assets/images/blog/placeholder.png" class="card-img-top" alt="...">
+                        <div class="overlay rounded-top"></div>
+                    </div>
+                    <div class="card-body content">
+                        <h5><a asp-area="Blog" asp-page="HowToTrackExpenses" class="card-title title text-dark">How to Track Your Expenses with <i>budgetbase</i></a></h5>
+                        <div class="post-meta d-flex justify-content-between mt-3">
+                            <ul class="list-unstyled mb-0">
+                                <li class="list-inline-item me-2 mb-0">
+                                    <div class="text-muted">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        8 min read
+                                    </div>
+                                </li>
+                            </ul>
+                            <a asp-area="Blog" asp-page="HowToTrackExpenses" class="text-muted readmore">
+                                Read More
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="10">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="author">
+                        <small class="user d-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                            Jim Simons
+                        </small>
+                        <small class="date">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
+                            12th August 2024
+                        </small>
+                    </div>
+                </div>
+            </div><!--end col-->
+
+            <div class="col-lg-4 col-md-6 mb-4 pb-2">
+                <div class="card blog blog-primary rounded border-0 shadow overflow-hidden">
+                    <div class="position-relative">
+                        <img src="assets/images/blog/placeholder.png" class="card-img-top" alt="...">
+                        <div class="overlay rounded-top"></div>
+                    </div>
+                    <div class="card-body content">
+                        <h5><a asp-area="Blog" asp-page="GettingStarted" class="card-title title text-dark">Getting Started with <i>budgetbase</i>: A Beginner's Guide</a></h5>
+                        <div class="post-meta d-flex justify-content-between mt-3">
+                            <ul class="list-unstyled mb-0">
+                                <li class="list-inline-item me-2 mb-0">
+                                    <div class="text-muted">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                        6 min read
+                                    </div>
+                                </li>
+                            </ul>
+                            <a asp-area="Blog" asp-page="GettingStarted" class="text-muted readmore">
+                                Read More
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="10">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="author">
+                        <small class="user d-block">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                            Jim Simons
+                        </small>
+                        <small class="date">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6" height="15">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z" />
+                            </svg>
+                            12th August 2024
+                        </small>
+                    </div>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</section>

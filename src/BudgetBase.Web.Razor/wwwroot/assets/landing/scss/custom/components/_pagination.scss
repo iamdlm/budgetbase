@@ -1,0 +1,40 @@
+// 
+// _pagination.scss
+// 
+
+//Pagination
+.pagination {
+    .page-item {
+        &:first-child .page-link {
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        } 
+        &:last-child .page-link {
+            border-top-right-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+        .page-link {
+            color: $dark;
+            border: 1px solid $border-color;
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: $pagination-bg;
+            &:focus {
+                box-shadow: none;
+            }
+            &:hover {
+                color: $pagination-color;
+                background: rgba($primary, 0.9);
+                border-color: rgba($primary, 0.9);
+            }
+        }
+        &.active {
+            .page-link {
+                color: $pagination-color;
+                background: $primary !important;
+                border-color: $primary;
+                cursor: not-allowed;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+//
+// alerts.scss
+//
+//Alert
+@each $name,
+$value in $theme-colors {
+    .alert-#{$name} {
+        background-color: rgba($value, 0.9);
+        color: $white;
+        border-color: $value;
+        .alert-link {
+            color: darken($value, 30%);
+        }
+    }
+    .alert-outline-#{$name} {
+        background-color: $white;
+        color: $value;
+        border-color: $value;
+    }
+}
+.alert {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 15px;
+    &.alert-light {
+        background-color: lighten($light, 3%);
+        border-color: $gray-200;
+    }
+    &.alert-dismissible {
+        padding-right: 30px;
+        .btn-close {
+            top: 10px;
+            right: 10px;
+            padding: 0px;
+        }
+    }
+    &.alert-pills {
+        border-radius: 30px;
+        display: inline-block;
+        .content {
+            font-weight: 600;
+        }
+    }
+}

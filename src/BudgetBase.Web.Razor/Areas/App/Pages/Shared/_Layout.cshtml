@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Budgetbase - Personal Finances Made Simple</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Finances Made Simple" />
+    <meta name="keywords" content="personal, finances, tracking, budgeting, expenses" />
+    <meta name="author" content="inforskill" />
+    <meta name="email" content="info@inforskill.com" />
+    <meta name="website" content="info@inforskill.com" />
+    <meta name="Version" content="v1.0.0" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="~/dist/images/favicon.ico" />
+    <!-- Css -->
+    <link href="~/dist/libs/simplebar/simplebar.min.css" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="~/dist/dashboard/css/bootstrap.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
+    <!-- Style Css-->
+    <link href="~/dist/dashboard/css/style.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
+    <link href="~/dist/css/dashboard.custom.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+    <div class="page-wrapper toggled">
+        <partial name="_SidebarDark" />
+
+        <!-- Start Page Content -->
+        <main class="page-content bg-light">
+            <partial name="_TopHeader" />
+            <div class="container-fluid">
+                <div class="layout-specing">
+                    @RenderBody()
+                </div>
+            </div>
+            <partial name="_Footer" />
+        </main>
+    </div>
+    <!-- javascript -->
+    <script src="~/dist/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/dist/libs/simplebar/simplebar.min.js"></script>
+    <!-- main Js -->
+    <script src="~/dist/js/plugins.init.js"></script>
+    <script src="~/dist/dashboard/js/app.js"></script>
+    <script src="~/dist/libs/imask/imask.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

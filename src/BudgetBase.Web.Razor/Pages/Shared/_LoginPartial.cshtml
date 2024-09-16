@@ -1,0 +1,14 @@
+﻿<ul class="buy-button list-inline mb-0">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <li class="list-inline-item ps-1 mb-0">
+            <a class="btn btn-primary text-white" asp-area="App" asp-page="Dashboard" title="Manage">Account</a>
+        </li>
+    }
+    else
+    {
+        <li class="list-inline-item ps-1 mb-0">
+            <a class="btn btn-primary text-white" asp-area="App" asp-page="Dashboard">Sign In</a>
+        </li>
+    }
+</ul>

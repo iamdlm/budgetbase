@@ -1,0 +1,30 @@
+// 
+// _progress.scss
+//
+//Processbar
+.progress-box {
+    .title {
+        font-size: 15px;
+    }
+    .progress {
+        height: 8px;
+        overflow: visible;
+        background: $progress-bg;
+        .progress-bar {
+            border-radius: 6px;
+            animation: animate-positive 3s;
+            overflow: visible !important;
+        }
+        .progress-value {
+            position: absolute;
+            top: -32px;
+            right: -15px;
+            font-size: 13px;
+        }
+    }
+    @keyframes animate-positive {
+        0% {
+            width: 0;
+        }
+    }
+}

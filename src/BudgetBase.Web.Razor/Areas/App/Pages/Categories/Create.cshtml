@@ -1,0 +1,123 @@
+﻿@page
+@model BudgetBase.Web.Razor.Areas.App.Pages.Categories.CategoryCreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="d-md-flex justify-content-between align-items-center">
+    <h5 class="mb-0 d-none d-lg-block">@ViewData["Title"]</h5>
+
+    @await Component.InvokeAsync("Breadcrumb", new { breadcrumbModels = Model.Breadcrumbs })
+</div>
+<div class="row">
+    <div class="col-md-12 mt-4">
+        <div class="card rounded shadow">
+            <div class="p-4 border-bottom">
+                <h5 class="title mb-0">Categories</h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <input asp-for="Category.Title" class="form-control" />
+                            <label asp-for="Category.Title"></label>
+                            <span asp-validation-for="Category.Title" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <input asp-for="Category.Description" class="form-control" />
+                            <label asp-for="Category.Description"></label>
+                            <span asp-validation-for="Category.Description" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <select asp-for="Category.TransactionTypeId" class="form-control" asp-items="@(ViewData["TransactionTypeId"] as SelectList)" onchange="updateCategories(this.value)">
+                                <option value=""></option>
+                            </select>
+                            <label asp-for="Category.TransactionTypeId" class="control-label"></label>
+                            <span asp-validation-for="Category.TransactionTypeId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <select asp-for="Category.ParentTransactionCategoryId" class="form-control" asp-items="@(ViewData["CategoryId"] as SelectList)">
+                                <option value=""></option>
+                            </select>
+                            <label asp-for="Category.ParentTransactionCategoryId" class="control-label"></label>
+                            <span asp-validation-for="Category.ParentTransactionCategoryId" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <input asp-for="Category.Color" class="form-control" type="color" />
+                            <label asp-for="Category.Color"></label>
+                            <span asp-validation-for="Category.Color" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <div class="form-floating">
+                            <input asp-for="Category.Icon" class="form-control" />
+                            <label asp-for="Category.Icon"></label>
+                            <span asp-validation-for="Category.Icon" class="text-danger"></span>
+                            <div id="output-icon"></div>
+                        </div>
+                    </div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group mt-4">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <a class="btn btn-outline-primary" asp-page="./Index">Back to List</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        await Html.RenderPartialAsync("_IconPickerInit");
+    }
+    <script>
+        // Update the categories select list based on the selected transaction type
+        function updateCategories(typeId) {
+            const catSelect = document.querySelector('select[name="Category.ParentTransactionCategoryId"]');
+            catSelect.innerHTML = '';
+
+            // Construct FormData and append the file
+            const formData = new FormData();
+            const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
+
+            // Append the RequestVerificationToken to the FormData
+            formData.append('__RequestVerificationToken', token);
+            formData.append('typeId', typeId);
+
+            // Make a POST request to the Razor page's action
+            fetch('create?handler=FillCategoriesSelectList', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // Add empty option first
+                    const emptyOptionElement = document.createElement('option');
+                    emptyOptionElement.value = '';
+                    emptyOptionElement.textContent = '';
+                    catSelect.appendChild(emptyOptionElement);
+
+                    // Update the select list with the received options
+                    for (const option of data) {
+                        const optionElement = document.createElement('option');
+                        optionElement.value = option.value;
+                        optionElement.textContent = option.text;
+                        catSelect.appendChild(optionElement);
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+    </script>
+}

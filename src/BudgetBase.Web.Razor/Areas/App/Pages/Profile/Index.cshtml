@@ -1,0 +1,54 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Personal Details";
+}
+
+<div class="d-md-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Profile</h5>
+
+    @await Component.InvokeAsync("Breadcrumb", new { breadcrumbModels = Model.Breadcrumbs })
+</div>
+<div class="row">
+    <div class="col-md-12 mt-4">
+        <div class="card border-0 rounded shadow">
+            <div class="p-4 border-bottom">
+                <h5 class="title mb-0">@ViewData["Title"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="col-md-6">
+                    <form id="profile-form" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.UserName" class="form-control" />
+                            <label asp-for="Input.UserName" class="form-label"></label>
+                            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.FullName" class="form-control" />
+                            <label asp-for="Input.FullName" class="form-label"></label>
+                            <span asp-validation-for="Input.FullName" class="text-danger"></span>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <select asp-for="Input.CountryId" class="form-control" asp-items="@(ViewData["CountryId"] as SelectList)" onchange="updateBanks(this.value)">
+                                <option value=""></option>
+                            </select>
+                            <label asp-for="Input.Country" class="form-label"></label>
+                            <span asp-validation-for="Input.Country" class="text-danger"></span>
+                        </div>                        
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <button id="update-profile-button" type="submit" class="btn btn-primary">Save Changes</button>                                
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    </form><!--end form-->
+                    <partial name="_StatusMessage" for="StatusMessage" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

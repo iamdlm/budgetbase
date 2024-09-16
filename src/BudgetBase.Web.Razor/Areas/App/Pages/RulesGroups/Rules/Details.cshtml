@@ -1,0 +1,53 @@
+﻿@page
+@model BudgetBase.Web.Razor.Areas.App.Pages.Rules.RuleDetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="d-md-flex justify-content-between align-items-center">
+    <h5 class="mb-0  d-none d-lg-block">@ViewData["Title"]</h5>
+
+    @await Component.InvokeAsync("Breadcrumb", new { breadcrumbModels = Model.Breadcrumbs })
+</div>
+<div class="row">
+    <div class="col-md-12 mt-4">
+        <div class="card rounded shadow">
+            <div class="p-4 border-bottom">
+                <h5 class="title mb-0">Rule</h5>
+            </div>
+            <div class="card-body">
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input asp-for="Rule.Name" class="form-control" disabled />
+                        <label asp-for="Rule.Name"></label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <select asp-for="Rule.TransactionRuleFieldId" class="form-control" asp-items="@(ViewData["TransactionRuleFieldId"] as SelectList)" disabled>
+                            <option value=""></option>
+                        </select>
+                        <label asp-for="Rule.TransactionRuleFieldId" class="control-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <select asp-for="Rule.TransactionRuleConditionId" class="form-control" asp-items="@(ViewData["TransactionRuleConditionId"] as SelectList)" disabled>
+                            <option value=""></option>
+                        </select>
+                        <label asp-for="Rule.TransactionRuleConditionId" class="control-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input asp-for="Rule.Value" class="form-control" disabled />
+                        <label asp-for="Rule.Value"></label>
+                    </div>
+                </div>
+                <div class="form-group mt-4">
+                    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.Rule?.Id">Edit</a>
+                    <a class="btn btn-outline-primary" asp-page="./Index" asp-route-groupId="@Request.Query["groupId"]">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

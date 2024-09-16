@@ -1,0 +1,56 @@
+﻿@page
+@model EmailModel
+@{
+    ViewData["Title"] = "Manage Email";
+}
+
+<div class="d-md-flex justify-content-between align-items-center">
+    <h5 class="mb-0">Profile</h5>
+
+    @await Component.InvokeAsync("Breadcrumb", new { breadcrumbModels = Model.Breadcrumbs })
+</div>
+<div class="row">
+    <div class="col-md-12 mt-4">
+        <div class="card border-0 rounded shadow">
+            <div class="p-4 border-bottom">
+                <h5 class="title mb-0">@ViewData["Title"]</h5>
+            </div>
+            <div class="card-body">
+                <div class="col-md-6">
+                    <form id="email-form" method="post">
+                        <div asp-validation-summary="All" class="text-danger" role="alert"></div>
+                        @if (Model.IsEmailConfirmed)
+                        {
+                            <div class="form-floating mb-3 input-group">
+                                <input asp-for="Email" class="form-control" disabled />
+                                <div class="input-group-append">
+                                    <span class="h-100 input-group-text text-success font-weight-bold border-0 rounded-0">✓</span>
+                                </div>
+                                <label asp-for="Email"></label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-floating mb-3">
+                                <input asp-for="Email" class="form-control" disabled />
+                                <label asp-for="Email"></label>
+                                <button id="email-verification" type="submit" asp-page-handler="SendVerificationEmail" class="btn btn-link">Send verification email</button>
+                            </div>
+                        }
+                        <div class="form-floating mb-3">
+                            <input asp-for="Input.NewEmail" class="form-control" autocomplete="email" aria-required="true" />
+                            <label asp-for="Input.NewEmail"></label>
+                            <span asp-validation-for="Input.NewEmail" class="text-danger"></span>
+                        </div>
+                        <button id="change-email-button" type="submit" asp-page-handler="ChangeEmail" class="btn btn-primary">Change email</button>
+                    </form>
+                    <partial name="_StatusMessage" for="StatusMessage" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

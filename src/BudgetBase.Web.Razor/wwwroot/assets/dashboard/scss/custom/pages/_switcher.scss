@@ -1,0 +1,100 @@
+//
+// switcher.scss
+//
+.switcher-btn {
+    position: fixed;
+    top: 200px;
+    height: 41px;
+    width: 40px;
+    padding: 3px;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.style-switcher {
+    // &.pattern {
+    //     list-style: none outside none;
+    //     overflow: hidden;
+    //     padding: 0;
+    //     border-radius: 0px;
+    //     li {
+    //         &.list-inline-item:not(:last-child) {
+    //             margin-right: 0px;
+    //             margin-bottom: 0;
+    //         }
+    //         a {
+    //             cursor: pointer;
+    //             display: block;
+    //             height: 35px;
+    //             width: 35px;
+    //             border-radius: 50%;
+    //             margin: 3px;
+    //         }
+    //     }
+        // .color1 {
+        //     background-color: $primary;
+        // }
+        
+        // .color2 {
+        //     background-color: $green;
+        // }
+        
+        // .color3 {
+        //     background-color: $purple;
+        // }
+        
+        // .color4 {
+        //     background-color: $red;
+        // }
+        
+        // .color5 {
+        //     background-color: $skyblue;
+        // }
+        
+        // .color6 {
+        //     background-color: $skobleoff;
+        // }
+        
+        // .color7 {
+        //     background-color: $cyan;
+        // }
+        
+        // .color8 {
+        //     background-color: $slateblue;
+        // }
+        
+        // .color9 {
+        //     background-color: $yellow;
+        // }
+    // }
+
+    .t-dark, 
+    .t-rtl-light {
+        display: inline-block;
+    }
+    .t-ltr-light,
+    .t-light,
+    .t-rtl-dark,
+    .t-ltr-dark {
+        display: none;
+    }
+}
+@media only screen and (max-width: 375px) {
+	.switcher-btn {
+		display: none !important;
+    }
+}
+
+//LTR Continues in RTL Version
+[dir="rtl"] {
+    .style-switcher {
+        .t-rtl-light {
+            display: none;
+        }
+        .t-ltr-light {
+            display: inline-block;
+        }
+    }
+}

@@ -1,0 +1,88 @@
+//
+// switcher.scss
+//
+.switcher-btn {
+    position: fixed;
+    top: 200px;
+    height: 41px;
+    width: 40px;
+    padding: 3px;
+    border-radius: 0 30px 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.style-switcher {
+
+    .t-dark, 
+    .t-rtl-light {
+        display: inline-block;
+    }
+    .t-ltr-light,
+    .t-light,
+    .t-rtl-dark,
+    .t-ltr-dark {
+        display: none;
+    }
+}
+
+//LTR Continues in RTL Version
+[dir="rtl"] {
+    .style-switcher {
+        .t-rtl-light {
+            display: none;
+        }
+        .t-ltr-light {
+            display: inline-block;
+        }
+    }
+}
+//
+// switcher.scss
+//
+ul.pattern {
+	overflow: hidden;
+	border-radius: 0px;
+    list-style: none;
+	li {
+		float: left;
+		margin: 2px;
+		.color-list {
+			display: block;
+			height: 35px;
+			width: 60px;
+			margin: 5px;
+		}
+	}
+	.color1 {
+		background-color: $blue;
+	}
+	.color2 {
+        background-color: $green-two;
+    }
+    
+    .color3 {
+        background-color: $yellow-two;
+    }
+}
+
+.mode-dark {
+	display: none;
+	transition: all 0.5s ease;
+}
+
+.mode-light {
+	display: blog;
+	transition: all 0.5s ease;
+}
+
+body[data-layout-mode="dark"] {
+    .mode-dark {
+        display: inline-block;
+    }
+
+    .mode-light {
+        display: none;
+    }
+}

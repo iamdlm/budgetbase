@@ -1,0 +1,11 @@
+// 
+// _card.scss
+// 
+//card
+.card {
+    background-color: $card-bg;
+    border: 0;
+    .card-body {
+        padding: 1.5rem;
+    }
+}

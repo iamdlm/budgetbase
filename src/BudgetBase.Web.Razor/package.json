@@ -1,0 +1,32 @@
+{
+  "name": "budget-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "devDependencies": {
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-npm-dist": "^1.0.3",
+    "gulp-purgecss": "^5.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-replace": "1.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^2.1.0",
+    "sass": "^1.61.0"
+  },
+  "dependencies": {
+    "@easepick/bundle": "^1.2.1",
+    "@migliori/universal-icon-picker": "^1.1.6",
+    "apexcharts": "^3.47.0",
+    "aspnet-client-validation": "^0.9.6",
+    "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.11.3",
+    "imask": "^7.6.0",
+    "simplebar": "^5.3.9",
+    "tabulator-tables": "^5.4.4",
+    "tiny-slider": "^2.9.4"
+  }
+}

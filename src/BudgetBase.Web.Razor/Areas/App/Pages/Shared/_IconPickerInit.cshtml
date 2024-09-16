@@ -1,0 +1,28 @@
+﻿<script src="~/dist/libs/@@migliori/universal-icon-picker/assets/js/universal-icon-picker.min.js"></script>
+<script>
+    // Initialize the Universal Icon Picker
+    const options = {
+        iconLibraries: [
+            'feather-icons.min.json',
+            'tabler-icons.min.json'
+        ],
+        iconLibrariesCss: [
+            'feather-icons.min.css',
+            'tabler-icons.min.css'
+        ],
+        onSelect: function (jsonIconData) {
+            var txt = document.createElement("textarea");
+            txt.innerHTML = jsonIconData.iconMarkup;
+            document.getElementById('output-icon').innerHTML = txt.value;
+            document.getElementById('Category_Icon').value = txt.value;
+        }
+    }
+
+    var uip = new UniversalIconPicker('#Category_Icon', options);
+
+    // Set the icon value on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        var icon = document.getElementById('Category_Icon');
+        document.getElementById('output-icon').innerHTML = icon.value;
+    });
+</script>

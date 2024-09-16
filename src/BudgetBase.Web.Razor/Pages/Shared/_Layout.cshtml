@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budgetbase - Personal Finances Made Simple</title>
+    <meta name="description" content="Keep track of all your money, bank accounts and spending in one place, so you stay organized and in control of your finances.">
+    <meta name="robots" content="index, follow">
+    <link href="~/dist/landing/css/bootstrap.min.css" id="bootstrap-style" class="theme-opt" rel="stylesheet" type="text/css" />
+    <link href="~/dist/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/dist/landing/css/style.min.css" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css" />
+    <link href="~/dist/css/landing.custom.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <partial name="_Header" />
+
+    @RenderBody()
+
+    <partial name="_Footer" />
+
+    <script src="~/dist/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!--Note: All init js like tiny slider, counter, countdown, maintenance, lightbox, gallery, swiper slider, aos animation etc.-->
+    <script src="~/dist/js/plugins.init.js"></script>
+    <!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
+    <script src="~/dist/landing/js/app.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,85 @@
+//
+//_common.scss
+//
+
+.page-wrapper {
+    .sidebar-wrapper {
+        .sidebar-brand {
+            .logo-dark-mode {
+                display: inline-block;
+            }
+            .logo-light-mode {
+                display: none;
+            }
+        }
+        &.sidebar-colored {
+            .sidebar-brand {
+                .sidebar-colored {
+                    display: inline-block;
+                }
+                .logo-dark-mode {
+                    display: none !important;
+                }
+                .logo-light-mode {
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+    .page-content {
+        .top-header {
+            .header-bar {
+                .logo-icon {
+                    .big {
+                        .logo-dark-mode {
+                            display: inline-block;
+                        }
+                        .logo-light-mode {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.style-switcher {
+    .t-dark,
+    .t-rtl-light,
+    .t-ltr-dark {
+        display: none;
+    }
+    .t-light,
+    .t-rtl-dark {
+        display: inline-block;
+    }
+}
+
+[dir="rtl"] {
+    .style-switcher {
+        .t-rtl-dark,
+        .t-ltr-light {
+            display: none;
+        }
+        .t-ltr-dark {
+            display: inline-block;
+        }
+    }
+}
+
+//Offcanvas
+.offcanvas {
+    .offcanvas-header {
+        .dark-version {
+            display: inline-block;
+        }
+        .light-version {
+            display: none;
+        }
+        .btn-close {
+            color: $dark;
+        }
+    }
+}

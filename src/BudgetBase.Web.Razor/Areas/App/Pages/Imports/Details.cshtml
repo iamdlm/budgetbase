@@ -1,0 +1,70 @@
+﻿@page
+@model BudgetBase.Web.Razor.Areas.App.Pages.Imports.ImportDetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="d-md-flex justify-content-between align-items-center">
+    <h5 class="mb-0  d-none d-lg-block">@ViewData["Title"]</h5>
+
+    @await Component.InvokeAsync("Breadcrumb", new { breadcrumbModels = Model.Breadcrumbs })
+</div>
+<div class="row">
+    <div class="col-md-12 mt-4">
+        <div class="card rounded shadow">
+            <div class="p-4 border-bottom">
+                <h5 class="title mb-0">Import</h5>
+            </div>
+            <div class="card-body">
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <select asp-for="Import.CountryId" class="form-control" asp-items="@(ViewData["CountryId"] as SelectList)" disabled></select>
+                        <label asp-for="Import.CountryId" class="control-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <select asp-for="Import.BankId" class="form-control" asp-items="@(ViewData["BankId"] as SelectList)" disabled></select>
+                        <label asp-for="Import.BankId" class="control-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <select asp-for="Import.SourceAccountId" class="form-control" asp-items="@(ViewData["SourceAccountId"] as SelectList)" disabled>
+                            <option value=""></option>
+                        </select>
+                        <label asp-for="Import.SourceAccountId" class="control-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <input asp-for="Import.FileName" class="form-control" disabled/>
+                        <label asp-for="Import.FileName" class="control-label"></label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <div class="form-check">
+                            <input asp-for="Import.InsertDuplicates" class="form-check-input" id="insertDuplicates" type="checkbox" disabled>
+                            <label class="form-check-label" for="insertDuplicates" asp-for="Import.InsertDuplicates">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <div class="form-check">
+                            <input asp-for="Import.IgnoreRules" class="form-check-input" id="ignoreRules" type="checkbox" disabled>
+                            <label class="form-check-label" for="ignoreRules" asp-for="Import.IgnoreRules">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-4">
+                    <a class="btn btn-outline-primary" asp-page="./Index">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

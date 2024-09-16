@@ -1,0 +1,20 @@
+﻿@page "/auth/confirm"
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Email confirmation";
+}
+
+<h1>@ViewData["Title"]</h1>
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+@if (Model.IsConfirmed)
+{
+    <a asp-area="App" asp-page="Dashboard" class="btn btn-primary w-100">Go to dashboard</a>
+}
+else
+{
+    <p>Please click the button below to resend the confirmation email.</p>
+    <form method="post">
+        <input type="hidden" name="email" value="@Model.Email" />
+        <button class="btn btn-primary w-100" type="submit">Resend email</button>
+    </form>    
+}

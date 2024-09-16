@@ -1,0 +1,232 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="wwwroot\assets\custom\**" />
+    <Compile Remove="wwwroot\assets\icons\**" />
+    <Content Remove="wwwroot\assets\custom\**" />
+    <Content Remove="wwwroot\assets\icons\**" />
+    <EmbeddedResource Remove="wwwroot\assets\custom\**" />
+    <EmbeddedResource Remove="wwwroot\assets\icons\**" />
+    <None Remove="wwwroot\assets\custom\**" />
+    <None Remove="wwwroot\assets\icons\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\assets\bootstrap-dark.scss" />
+    <Content Remove="wwwroot\assets\bootstrap.scss" />
+    <Content Remove="wwwroot\assets\icons.scss" />
+    <Content Remove="wwwroot\assets\style-dark.scss" />
+    <Content Remove="wwwroot\assets\style.scss" />
+    <Content Remove="wwwroot\assets\_variables-dark.scss" />
+    <Content Remove="wwwroot\assets\_variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Areas\App\Pages\Shared\SidebarDark.cshtml.css" />
+    <None Remove="Areas\App\Pages\Shared\TopHeader.cshtml.css" />
+    <None Remove="Areas\App\Pages\Shared\_TopHeader - Copy.cshtml.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Areas\App\Pages\Shared\_Footer.cshtml.css" />
+    <Compile Include="Areas\App\Pages\Shared\_TopHeader.cshtml.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\BudgetBase.Infrastructure.Common\appsettings.Development.json" Link="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\BudgetBase.Infrastructure.Common\appsettings.json" Link="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\assets\dashboard\scss\bootstrap-dark.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\bootstrap.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_accordion.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_alerts.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_avatar.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_backgrounds.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_badge.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_blockquote.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_breadcrumb.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_buttons.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_card.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_carousel.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_dropdown.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_forms.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_nav.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_offcanvas-modal.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_pagination.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_preloader.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_progress.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_reboot.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_shadow.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_table.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\components\_text.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\dark\_common.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\fonts\_fonts.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_blog.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_calendar.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_chat.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_features.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_helper.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_home.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_price.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_shop.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_simplebar.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_switcher.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_team.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_testi.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_user.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\pages\_work.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\plugins\icons\_materialdesignicons.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\plugins\icons\_tabler-icons.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\plugins\_icons.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\structure\_footer.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\structure\_general.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom\structure\_sidebar-layouts.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\icons.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\icons\_materialdesignicons.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\icons\_tabler-icons.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\style-dark.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\style.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\_variables-dark.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\_variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.6" />
+    <PackageReference Include="Roslyn.Analyzers" Version="1.0.3.4" />
+    <PackageReference Include="Roslynator.Analyzers" Version="4.12.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BudgetBase.Core.Application\BudgetBase.Core.Application.csproj" />
+    <ProjectReference Include="..\BudgetBase.Infrastructure.Common\BudgetBase.Infrastructure.Common.csproj" />
+    <ProjectReference Include="..\BudgetBase.Infrastructure.Identity\BudgetBase.Infrastructure.Identity.csproj" />
+    <ProjectReference Include="..\BudgetBase.Infrastructure.Persistence\BudgetBase.Infrastructure.Persistence.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Areas\Auth\Pages\AccessDenied.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\ConfirmEmail.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\ConfirmEmailChange.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\ForgotPassword.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\ForgotPasswordConfirmation.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\Login.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\Logout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\App\Pages\Profile\ChangePassword.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\App\Pages\Profile\Email.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\App\Pages\Profile\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\Manage\_Layout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\Manage\_ManageNav.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\Manage\_StatusMessage.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\Manage\_ViewImports.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\Register.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\RegisterConfirmation.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\ResendEmailConfirmation.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\ResetPassword.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\ResetPasswordConfirmation.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\Shared\_Layout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\Shared\_StatusMessage.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Areas\Auth\Pages\_ViewImports.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Pages\Shared\_Footer.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Pages\Shared\_Header.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Pages\Shared\_Layout.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Pages\Shared\_LoginPartial.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

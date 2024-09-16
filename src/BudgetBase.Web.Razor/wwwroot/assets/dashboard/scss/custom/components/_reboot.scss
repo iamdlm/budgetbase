@@ -1,0 +1,38 @@
+/* =============
+   General
+=============*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+//li (list inline item)
+.list-inline-item:not(:last-child) {
+  margin-right: 0px;
+  margin-bottom: 5px;
+}
+
+// container
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+  @media (min-width: 1200px){
+      max-width: 1140px;
+  }
+}
+
+// row
+
+.row{
+  > * {
+      position: relative;
+  }
+}
