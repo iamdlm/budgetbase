@@ -1,0 +1,13 @@
+changelog:
+  sections:
+  - title: "What's New"
+    labels: ["enhancement"]
+  - title: "Bug Fixes"
+    labels: ["bug"]
+  - title: "Documentation"
+    labels: ["documentation"]
+  - title: "Dependency Upgrades"
+    labels: ["dependency"]
+  issues:
+    exclude:
+      labels: ["wontfix", "question", "duplicate", "invalid"]
