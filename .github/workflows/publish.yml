@@ -33,7 +33,7 @@ jobs:
         source: ./
         target: ${{ secrets.PATH }}    
     - name: Restart service
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.HOSTNAME }}
         username: ${{ secrets.USERNAME }}
