@@ -31,21 +31,7 @@ jobs:
         port: ${{ secrets.PORT }}
         key: ${{ secrets.SSHKEY }}
         source: ./
-        target: ${{ secrets.PATH }}
-    - name: Debug Environment
-      run: |
-        echo "GitHub Runner OS: ${{ runner.os }}"
-        echo "Shell: $SHELL"
-        echo "Bash location:"
-        which bash || echo "bash not found"
-        echo "Bash version:"
-        bash --version || echo "bash version command failed"
-        echo "Path:"
-        echo $PATH
-        echo "Directory contents:"
-        ls -l /usr/bin/bash /bin/bash || echo "ls command failed"
-        echo "Environment variables:"
-        env
+        target: ${{ secrets.PATH }}    
     - name: Restart service
       uses: appleboy/ssh-action@master
       with:
