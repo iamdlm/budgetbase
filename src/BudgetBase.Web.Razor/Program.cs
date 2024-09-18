@@ -3,6 +3,7 @@ using BudgetBase.Infrastructure.Identity.Extensions;
 using BudgetBase.Web.Razor.Extensions;
 using BudgetBase.Infrastructure.Common.Extensions;
 using BudgetBase.Core.Application.Extensions;
+using Microsoft.AspNetCore.HttpOverrides;
 
 namespace BudgetBase.Web.Razor
 {
