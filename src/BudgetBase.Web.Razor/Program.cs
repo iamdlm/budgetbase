@@ -43,6 +43,13 @@ namespace BudgetBase.Web.Razor
                 options.Conventions.AuthorizeAreaFolder("App", "/");
             });
 
+            // Configura Forwarded Headers middleware
+            builder.Services.Configure<ForwardedHeadersOptions>(options =>
+            {
+                options.ForwardedHeaders =
+                    ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            });
+
             // Configure cookie
             builder.Services.ConfigureCookie();
 
