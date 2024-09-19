@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BudgetBase.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240217181711_AddTransactionRuleValue")]
-    partial class AddTransactionRuleValue
+    [Migration("20240918223314_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -123,6 +123,9 @@ namespace BudgetBase.Infrastructure.Persistence.Migrations
                     b.Property<string>("Filename")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("IgnoreRules")
+                        .HasColumnType("boolean");
 
                     b.Property<bool>("InsertDuplicates")
                         .HasColumnType("boolean");
@@ -236,6 +239,9 @@ namespace BudgetBase.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("Color")
+                        .HasColumnType("text");
+
                     b.Property<string>("CreatedBy")
                         .IsRequired()
                         .HasColumnType("text");
@@ -244,6 +250,9 @@ namespace BudgetBase.Infrastructure.Persistence.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Icon")
                         .HasColumnType("text");
 
                     b.Property<string>("ModifiedBy")
@@ -311,6 +320,20 @@ namespace BudgetBase.Infrastructure.Persistence.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
@@ -319,6 +342,9 @@ namespace BudgetBase.Infrastructure.Persistence.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<Guid>("TransactionRuleFieldId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("TransactionRulesGroupId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Value")
@@ -330,6 +356,8 @@ namespace BudgetBase.Infrastructure.Persistence.Migrations
                     b.HasIndex("TransactionRuleConditionId");
 
                     b.HasIndex("TransactionRuleFieldId");
+
+                    b.HasIndex("TransactionRulesGroupId");
 
                     b.ToTable("TransactionRules");
                 });
@@ -368,6 +396,63 @@ namespace BudgetBase.Infrastructure.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TransactionRuleFields");
+                });
+
+            modelBuilder.Entity("BudgetBase.Core.Domain.Entities.TransactionRulesGroup", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("ModifiedBy")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime>("ModifiedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("TransactionCategoryId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("TransactionRulesGroupOperatorId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TransactionCategoryId");
+
+                    b.HasIndex("TransactionRulesGroupOperatorId");
+
+                    b.ToTable("TransactionRulesGroups");
+                });
+
+            modelBuilder.Entity("BudgetBase.Core.Domain.Entities.TransactionRulesGroupOperator", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Index")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TransactionRulesGroupOperator");
                 });
 
             modelBuilder.Entity("BudgetBase.Core.Domain.Entities.TransactionType", b =>
@@ -497,9 +582,36 @@ namespace BudgetBase.Infrastructure.Persistence.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BudgetBase.Core.Domain.Entities.TransactionRulesGroup", "TransactionRulesGroup")
+                        .WithMany("TransactionRules")
+                        .HasForeignKey("TransactionRulesGroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("TransactionRuleCondition");
 
                     b.Navigation("TransactionRuleField");
+
+                    b.Navigation("TransactionRulesGroup");
+                });
+
+            modelBuilder.Entity("BudgetBase.Core.Domain.Entities.TransactionRulesGroup", b =>
+                {
+                    b.HasOne("BudgetBase.Core.Domain.Entities.TransactionCategory", "TransactionCategory")
+                        .WithMany()
+                        .HasForeignKey("TransactionCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("BudgetBase.Core.Domain.Entities.TransactionRulesGroupOperator", "TransactionRulesGroupOperator")
+                        .WithMany()
+                        .HasForeignKey("TransactionRulesGroupOperatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("TransactionCategory");
+
+                    b.Navigation("TransactionRulesGroupOperator");
                 });
 
             modelBuilder.Entity("BudgetBase.Core.Domain.Entities.Account", b =>
@@ -546,6 +658,11 @@ namespace BudgetBase.Infrastructure.Persistence.Migrations
             modelBuilder.Entity("BudgetBase.Core.Domain.Entities.TransactionEntryType", b =>
                 {
                     b.Navigation("Transactions");
+                });
+
+            modelBuilder.Entity("BudgetBase.Core.Domain.Entities.TransactionRulesGroup", b =>
+                {
+                    b.Navigation("TransactionRules");
                 });
 
             modelBuilder.Entity("BudgetBase.Core.Domain.Entities.TransactionType", b =>

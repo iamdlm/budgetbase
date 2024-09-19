@@ -22,4 +22,8 @@
     <ProjectReference Include="..\BudgetBase.Core.Application\BudgetBase.Core.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
