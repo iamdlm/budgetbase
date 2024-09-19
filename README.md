@@ -38,5 +38,3 @@ For general help using Budgetbase, please refer to official documentation on bud
 Budgetbase is open-source software, freely distributable under the terms of an MIT license.
 
 We welcome contributions in the form of feature requests, bug reports, pull requests, or thoughtful discussions in the GitHub discussions and issue tracker. Please see the CONTRIBUTING document for more information.
-
-Budgetbase was founded by [@iamdlm](https://github.com/iamdlm).
