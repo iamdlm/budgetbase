@@ -27,7 +27,7 @@ namespace BudgetBase.Infrastructure.Common.Services
             string subject = "Confirm your email";
 
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            string confirmationLink = $"{_confirmOptions.BaseUrl}/{_confirmOptions.ConfirmationUrl}?code={code}&userId={userId}&returnUrl={_confirmOptions.CallbackUrl}";
+            string confirmationLink = $"{Environment.GetEnvironmentVariable(_confirmOptions.BaseUrl)}/{_confirmOptions.ConfirmationUrl}?code={code}&userId={userId}&returnUrl={_confirmOptions.CallbackUrl}";
             string message = $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(confirmationLink)}'>clicking here</a>.";
 
             await SendEmailAsync(userEmail, subject, message).ConfigureAwait(false);
@@ -38,7 +38,7 @@ namespace BudgetBase.Infrastructure.Common.Services
             string subject = "Confirm your email";
 
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            string confirmationLink = $"{_confirmOptions.BaseUrl}/{_confirmOptions.ConfirmationChangeUrl}?code={code}&email={userEmail}&returnUrl={_confirmOptions.CallbackUrl}";
+            string confirmationLink = $"{Environment.GetEnvironmentVariable(_confirmOptions.BaseUrl)}/{_confirmOptions.ConfirmationChangeUrl}?code={code}&email={userEmail}&returnUrl={_confirmOptions.CallbackUrl}";
             string message = $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(confirmationLink)}'>clicking here</a>.";
 
             await SendEmailAsync(userEmail, subject, message).ConfigureAwait(false);
@@ -49,7 +49,7 @@ namespace BudgetBase.Infrastructure.Common.Services
             string subject = "Reset your password";
 
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-            string callbackUrl = $"{_confirmOptions.BaseUrl}/{_confirmOptions.ResetPasswordUrl}?code={code}";
+            string callbackUrl = $"{Environment.GetEnvironmentVariable(_confirmOptions.BaseUrl)}/{_confirmOptions.ResetPasswordUrl}?code={code}";
             string message = $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.";
 
             await SendEmailAsync(userEmail, subject, message).ConfigureAwait(false);
@@ -58,7 +58,7 @@ namespace BudgetBase.Infrastructure.Common.Services
         private async Task SendEmailAsync(string recipient, string subject, string message)
         {
             MimeMessage email = new MimeMessage();
-            email.From.Add(new MailboxAddress(Environment.GetEnvironmentVariable(_confirmOptions.BaseUrl), Environment.GetEnvironmentVariable(_smtpOptions.Email)));
+            email.From.Add(new MailboxAddress(_confirmOptions.Name, Environment.GetEnvironmentVariable(_smtpOptions.Email)));
             email.To.Add(MailboxAddress.Parse(recipient));
             email.Subject = subject;
 

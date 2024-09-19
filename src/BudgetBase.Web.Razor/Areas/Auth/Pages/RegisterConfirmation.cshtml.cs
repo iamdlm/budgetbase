@@ -52,6 +52,8 @@ namespace BudgetBase.Web.Razor.Areas.Auth.Pages
 
         public async Task<IActionResult> OnPostAsync(string email)
         {
+            Email = email;
+
             var user = await _userService.FindByEmailAsync(email).ConfigureAwait(false);
 
             if (user == null)
@@ -62,7 +64,7 @@ namespace BudgetBase.Web.Razor.Areas.Auth.Pages
             TokenResponse response = await _authService.GenerateEmailConfirmationAsync(email).ConfigureAwait(false);
 
             StatusMessage = response.Succeeded ? "Email sent successfully." : "Error sending email. Please try again.";
-
+                        
             return Page();
         }
     }

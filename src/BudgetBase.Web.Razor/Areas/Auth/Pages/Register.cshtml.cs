@@ -5,6 +5,7 @@ using BudgetBase.Core.Application.DTOs.Identity;
 using BudgetBase.Core.Application.Interfaces.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BudgetBase.Web.Razor.Areas.Auth.Pages
 {
@@ -44,8 +45,9 @@ namespace BudgetBase.Web.Razor.Areas.Auth.Pages
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
-        }
 
+            public bool HasAcceptedTerms { get; set; }
+        }
 
         public Task OnGetAsync(string returnUrl = null)
         {
@@ -56,6 +58,12 @@ namespace BudgetBase.Web.Razor.Areas.Auth.Pages
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
+
+            if (!Input.HasAcceptedTerms)
+            {
+                ModelState.AddModelError("Input.HasAcceptedTerms", "You must accept the terms.");
+                return Page();
+            }
 
             if (ModelState.IsValid)
             {

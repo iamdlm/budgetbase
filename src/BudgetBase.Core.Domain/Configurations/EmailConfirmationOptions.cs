@@ -3,6 +3,7 @@
     public class EmailConfirmationOptions
     {
         public const string EmailConfirmation = "EmailConfirmation";
+        public string Name { get; set; }
         public string BaseUrl { get; set; }
         public string ConfirmationUrl { get; set; }
         public string ConfirmationChangeUrl { get; set; }
