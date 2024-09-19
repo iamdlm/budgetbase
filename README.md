@@ -35,6 +35,6 @@ dotnet ef migrations add MIGRATION_NAME --context AppIdentityDbContext --project
 For general help using Budgetbase, please refer to official documentation on budgetbase.app, the Budgetbase Youtube channel, or post your questions and feedback in Github Discussions.
 
 ## Contributing to Budgetbase
-Budgetbase is open-source software, freely distributable under the terms of an MIT license.
+Budgetbase is open-source software, freely distributable under the terms of an AGPL-3.0 license.
 
 We welcome contributions in the form of feature requests, bug reports, pull requests, or thoughtful discussions in the GitHub discussions and issue tracker. Please see the CONTRIBUTING document for more information.
