@@ -4,6 +4,7 @@ using BudgetBase.Web.Razor.Extensions;
 using BudgetBase.Infrastructure.Common.Extensions;
 using BudgetBase.Core.Application.Extensions;
 using Microsoft.AspNetCore.HttpOverrides;
+using BudgetBase.Infrastructure.Common.Logging;
 
 namespace BudgetBase.Web.Razor
 {
@@ -15,6 +16,8 @@ namespace BudgetBase.Web.Razor
             var builder = WebApplication.CreateBuilder(args);
 
             builder.ConfigureOptions();
+
+            builder.Logging.AddDbLogger();
 
             // Add Db contexts
             builder.Services.AddAppDbContext();
@@ -66,6 +69,7 @@ namespace BudgetBase.Web.Razor
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
+                app.UseStatusCodePagesWithReExecute("/Error", "?statusCode={0}");
                 app.UseForwardedHeaders();
             }
 
@@ -74,6 +78,8 @@ namespace BudgetBase.Web.Razor
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseErrorLoggingMiddleware();
 
             using (var scope = app.Services.CreateScope())
             {
