@@ -11,6 +11,7 @@ using System.Text;
 using DocumentFormat.OpenXml.Spreadsheet;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.AspNetCore.Http;
+using BudgetBase.Core.Application.Interfaces.Application;
 
 namespace BudgetBase.Infrastructure.Identity.Services
 {
@@ -22,12 +23,14 @@ namespace BudgetBase.Infrastructure.Identity.Services
         public UserManager<ApplicationUser> _userManager { get; }
         public IMapper _mapper { get; }
         public IMemoryCache _cache { get; }
+        private ICurrentUserService _currentUserService { get; }
 
-        public UserService(UserManager<ApplicationUser> userManager, IMapper mapper, IMemoryCache cache)
+        public UserService(UserManager<ApplicationUser> userManager, IMapper mapper, IMemoryCache cache, ICurrentUserService userService)
         {
             _userManager = userManager;
             _mapper = mapper;
             _cache = cache;
+            _currentUserService = userService;
         }
 
         public async Task<ApplicationUserDto> FindByIdAsync(string userId)
@@ -162,6 +165,32 @@ namespace BudgetBase.Infrastructure.Identity.Services
             }
 
             return result.ToAuthenticationResult();
+        }
+
+        public async Task UpdateThemeOptAsync(string theme)
+        {
+            // Get the current user
+            var user = await _userManager.FindByIdAsync(_currentUserService.UserId).ConfigureAwait(false);
+
+            if (user != null) {
+                // Update the user's theme
+                user.ThemeOpt = theme;
+
+                // Update the user
+                await _userManager.UpdateAsync(user).ConfigureAwait(false);
+            }
+        }
+
+        public async Task<string> GetThemeOptAsync()
+        {
+            // Get the current user
+            var user = await _userManager.FindByIdAsync(_currentUserService.UserId).ConfigureAwait(false);
+
+            if (user != null) {
+                return user.ThemeOpt;
+            }
+
+            return string.Empty;
         }
     }
 }

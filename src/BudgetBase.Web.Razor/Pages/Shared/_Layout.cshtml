@@ -6,10 +6,12 @@
     <title>Budgetbase - Personal Finances Made Simple</title>
     <meta name="description" content="Keep track of all your money, bank accounts and spending in one place, so you stay organized and in control of your finances.">
     <meta name="robots" content="index, follow">
-    <link href="~/dist/landing/css/bootstrap.min.css" id="bootstrap-style" class="theme-opt" rel="stylesheet" type="text/css" />
+    <link href="~/dist/landing/css/bootstrap.min.css" id="bootstrap-light" rel="stylesheet" type="text/css" />
+    <link href="~/dist/landing/css/bootstrap-dark.min.css" id="bootstrap-dark" rel="stylesheet" type="text/css" />
     <link href="~/dist/libs/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/dist/landing/css/style.min.css" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css" />
-    <link href="~/dist/css/landing.custom.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
+    <link href="~/dist/landing/css/style.min.css" id="style-light" rel="stylesheet" type="text/css" />
+    <link href="~/dist/landing/css/style-dark.min.css" id="style-dark" rel="stylesheet" type="text/css" />
+    <link href="~/dist/css/landing.custom.min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <partial name="_Header" />
@@ -23,6 +25,7 @@
     <script src="~/dist/js/plugins.init.js"></script>
     <!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
     <script src="~/dist/landing/js/app.js"></script>
+    <script src="~/dist/js/theme-toggler.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
