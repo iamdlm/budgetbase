@@ -4,6 +4,7 @@ using BudgetBase.Core.Domain.Configurations;
 using BudgetBase.Infrastructure.Common.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
+using BudgetBase.Infrastructure.Common.Middlewares;
 
 namespace BudgetBase.Infrastructure.Common.Extensions
 {
@@ -19,6 +20,11 @@ namespace BudgetBase.Infrastructure.Common.Extensions
         {
             builder.Services.Configure<SmtpOptions>(builder.Configuration.GetSection(SmtpOptions.Smtp));
             builder.Services.Configure<EmailConfirmationOptions>(builder.Configuration.GetSection(EmailConfirmationOptions.EmailConfirmation));
+        }
+
+        public static void UseErrorLoggingMiddleware(this IApplicationBuilder builder)
+        {
+            builder.UseMiddleware<ErrorLoggingMiddleware>();
         }
     }
 }
