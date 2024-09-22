@@ -17,7 +17,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Profile
         //private readonly IEmailSender _emailSender;
 
         public EmailModel(
-            IUserService userService, IAuthService authService)
+            IUserService userService, IAuthService authService) : base(userService)
         {
             _userService = userService;
             _authService = authService;

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BudgetBase.Core.Application.DTOs.Persistence;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Accounts;
@@ -9,12 +10,13 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Accounts
 {
     public class AccountIndexModel : BaseIndexModel<AccountViewModel, AccountViewModel, AccountDto>
     {
-        public AccountIndexModel(IMapper mapper, IAccountService accountService)
-             : base(mapper, accountService)
+        public AccountIndexModel(IMapper mapper, IAccountService accountService, IUserService userService)
+             : base(mapper, accountService, userService)
         {
         }
 
         public IList<AccountViewModel> Accounts { get; set; } = default!;
+        
         protected override Expression<Func<AccountViewModel, object>> GetSortPropertyExpression(string sortField)
         {
             switch (sortField)

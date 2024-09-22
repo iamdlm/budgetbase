@@ -4,9 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - budgetbase</title>
-    <link href="~/dist/dashboard/css/bootstrap.min.css" id="bootstrap-style" class="theme-opt" rel="stylesheet" type="text/css" />
+    <link href="~/dist/dashboard/css/bootstrap.min.css" id="bootstrap-light" rel="stylesheet" type="text/css" />
+    <link href="~/dist/dashboard/css/bootstrap-dark.min.css" id="bootstrap-dark" rel="stylesheet" type="text/css" />
     <link href="~/dist/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/dist/dashboard/css/style.min.css" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css" />
+    <link href="~/dist/dashboard/css/style.min.css" id="style-light" rel="stylesheet" type="text/css" />
+    <link href="~/dist/dashboard/css/style-dark.min.css" id="style-dark" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <section class="bg-home bg-circle-gradiant d-flex align-items-center">
@@ -27,6 +29,7 @@
     <script src="~/dist/js/plugins.init.js"></script>
     <!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
     <script src="~/dist/dashboard/js/app.js"></script>
+    <script src="~/dist/js/theme-toggler.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

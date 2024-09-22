@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Components.Tabulator;
 using BudgetBase.Web.Razor.Helpers;
@@ -15,7 +16,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.PageModels
         protected readonly IMapper _mapper;
         protected readonly IBaseService<TDto> _baseService;
 
-        protected BaseIndexModel(IMapper mapper, IBaseService<TDto> baseService)
+        protected BaseIndexModel(IMapper mapper, IBaseService<TDto> baseService, IUserService userService) : base(userService)
         {
             _mapper = mapper;
             _baseService = baseService;

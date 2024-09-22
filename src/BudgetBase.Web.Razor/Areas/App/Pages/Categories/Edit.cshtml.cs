@@ -5,6 +5,7 @@ using BudgetBase.Core.Application.Interfaces.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Categories;
 using BudgetBase.Web.Razor.Helpers;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.Categories
 {
@@ -12,7 +13,11 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Categories
     {
         private readonly IMapper _mapper;
 
-        public CategoryEditModel(IMapper mapper, ICategoryService categoryService, ITransactionTypeService enumService) : base(categoryService, enumService)
+        public CategoryEditModel(
+            IMapper mapper,
+            ICategoryService categoryService,
+            ITransactionTypeService enumService,
+            IUserService userService) : base(categoryService, enumService, userService)
         {
             _mapper = mapper;
         }

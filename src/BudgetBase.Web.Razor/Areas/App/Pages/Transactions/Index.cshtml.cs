@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BudgetBase.Core.Application.DTOs.Persistence;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Core.Application.Services.Persistence;
 using BudgetBase.Core.Domain.Entities;
@@ -19,8 +20,9 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Transactions
         public TransactionIndexModel(
             IMapper mapper,
             ITransactionService transactionService,
-            ITransactionRulesGroupService rulesService)
-            : base(mapper, transactionService)
+            ITransactionRulesGroupService rulesService,
+            IUserService userService)
+            : base(mapper, transactionService, userService)
         {
             _rulesService = rulesService;
         }

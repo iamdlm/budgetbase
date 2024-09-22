@@ -4,6 +4,7 @@ using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Core.Application.DTOs.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using BudgetBase.Web.Razor.Areas.App.Pages.Helpers;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.Categories
 {
@@ -12,7 +13,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Categories
         protected readonly ICategoryService _categoryService;
         private readonly ITransactionTypeService _enumService;
 
-        protected CategoryPageModelBase(ICategoryService categoryService, ITransactionTypeService enumService)
+        protected CategoryPageModelBase(ICategoryService categoryService, ITransactionTypeService enumService, IUserService userService) : base(userService)
         {
             _categoryService = categoryService;
             _enumService = enumService;

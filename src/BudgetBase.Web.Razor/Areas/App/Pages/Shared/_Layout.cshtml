@@ -15,9 +15,11 @@
     <!-- Css -->
     <link href="~/dist/libs/simplebar/simplebar.min.css" rel="stylesheet">
     <!-- Bootstrap Css -->
-    <link href="~/dist/dashboard/css/bootstrap.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
+    <link href="~/dist/dashboard/css/bootstrap.min.css" id="bootstrap-light" rel="stylesheet" type="text/css" />
+    <link href="~/dist/dashboard/css/bootstrap-dark.min.css" id="bootstrap-dark" rel="stylesheet" type="text/css" />
     <!-- Style Css-->
-    <link href="~/dist/dashboard/css/style.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
+    <link href="~/dist/dashboard/css/style.min.css" id="style-light" rel="stylesheet" type="text/css" />
+    <link href="~/dist/dashboard/css/style-dark.min.css" id="style-dark" rel="stylesheet" type="text/css" />
     <link href="~/dist/css/dashboard.custom.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
     @await RenderSectionAsync("Styles", required: false)
 </head>
@@ -27,7 +29,7 @@
 
         <!-- Start Page Content -->
         <main class="page-content bg-light">
-            <partial name="_TopHeader" />
+            <partial name="_TopHeader" model="Model.ThemeOpt" />
             <div class="container-fluid">
                 <div class="layout-specing">
                     @RenderBody()
@@ -43,6 +45,7 @@
     <script src="~/dist/js/plugins.init.js"></script>
     <script src="~/dist/dashboard/js/app.js"></script>
     <script src="~/dist/libs/imask/imask.min.js"></script>
+    <script src="~/dist/js/theme-toggler.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

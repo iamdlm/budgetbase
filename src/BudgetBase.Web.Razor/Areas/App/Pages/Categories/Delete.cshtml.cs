@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BudgetBase.Core.Application.DTOs.Persistence;
 using BudgetBase.Core.Application.Exceptions;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Categories;
 using BudgetBase.Web.Razor.Helpers;
@@ -12,8 +13,12 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Categories
     {
         private readonly IMapper _mapper;
 
-        public CategoryDeleteModel(IMapper mapper, ICategoryService categoryService, ITransactionTypeService enumService) : base(categoryService, enumService)
-        {
+        public CategoryDeleteModel(
+            IMapper mapper,
+            ICategoryService categoryService,
+            ITransactionTypeService enumService,
+            IUserService userService) : base(categoryService, enumService, userService)
+        { 
             _mapper = mapper;
         }
 

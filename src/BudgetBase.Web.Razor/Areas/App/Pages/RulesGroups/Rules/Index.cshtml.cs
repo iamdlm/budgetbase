@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BudgetBase.Core.Application.DTOs.Persistence;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Components.Tabulator;
@@ -14,8 +15,8 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Rules
         private readonly IMapper _mapper;
         private readonly ITransactionRuleService _ruleService;
 
-        public RuleIndexModel(IMapper mapper, ITransactionRuleService ruleService)
-            : base(mapper, ruleService)
+        public RuleIndexModel(IMapper mapper, ITransactionRuleService ruleService, IUserService userService)
+            : base(mapper, ruleService, userService)
         {
             _mapper = mapper;
             _ruleService = ruleService;

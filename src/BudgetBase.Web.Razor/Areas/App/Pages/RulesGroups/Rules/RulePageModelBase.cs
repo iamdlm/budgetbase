@@ -3,6 +3,7 @@ using BudgetBase.Core.Application.Interfaces.Persistence;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.Rules
 {
@@ -15,7 +16,8 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Rules
         protected RulePageModelBase(
             ICategoryService categoryService,
             ITransactionRuleFieldService ruleFieldService,
-            ITransactionRuleConditionService ruleConditionService)
+            ITransactionRuleConditionService ruleConditionService,
+            IUserService userService) : base(userService)
         {
             _categoryService = categoryService;
             _ruleFieldService = ruleFieldService;

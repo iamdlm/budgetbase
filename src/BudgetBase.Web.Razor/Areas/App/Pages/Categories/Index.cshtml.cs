@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BudgetBase.Core.Application.DTOs.Persistence;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Categories;
@@ -9,8 +10,8 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Categories
 {
     public class CategoryIndexModel : BaseIndexModel<CategoryListViewModel, CategoryViewModel, CategoryDto>
     {
-        public CategoryIndexModel(IMapper mapper, ICategoryService categoryService)
-            : base(mapper, categoryService)
+        public CategoryIndexModel(IMapper mapper, ICategoryService categoryService, IUserService userService)
+            : base(mapper, categoryService, userService)
         {
         }
 

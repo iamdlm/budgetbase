@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Rules;
 using BudgetBase.Core.Domain.Models;
 using BudgetBase.Web.Razor.Helpers;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.Rules
 {
@@ -19,7 +20,8 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Rules
              ICategoryService categoryService,
             ITransactionRuleService ruleService,
             ITransactionRuleFieldService ruleFieldService,
-            ITransactionRuleConditionService ruleConditionService) : base(categoryService,ruleFieldService, ruleConditionService)
+            ITransactionRuleConditionService ruleConditionService,
+            IUserService userService) : base(categoryService,ruleFieldService, ruleConditionService, userService)
         {
             _mapper = mapper;
             _ruleService = ruleService;

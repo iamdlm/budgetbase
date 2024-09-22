@@ -1,4 +1,5 @@
-﻿using BudgetBase.Core.Application.Interfaces.Persistence;
+﻿using BudgetBase.Core.Application.Interfaces.Identity;
+using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.Pages.Helpers;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,7 +13,8 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.RulesGroups
 
         protected RulesGroupPageModelBase(
             ICategoryService categoryService,
-            ITransactionRulesGroupOperatorService operatorService)
+            ITransactionRulesGroupOperatorService operatorService,
+            IUserService userService) : base(userService)
         {
             _categoryService = categoryService;
             _operatorService = operatorService;

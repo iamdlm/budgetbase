@@ -13,9 +13,9 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Profile
         private readonly ILogger<ChangePasswordModel> _logger;
 
         public ChangePasswordModel(
-            IUserService userService, 
+            IUserService userService,
             IAuthService authService,
-            ILogger<ChangePasswordModel> logger)
+            ILogger<ChangePasswordModel> logger) : base(userService)
         {
             _userService = userService;
             _authService = authService;
@@ -50,7 +50,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Profile
         public async Task<IActionResult> OnGetAsync()
         {
             var hasPassword = await _userService.HasPasswordAsync(User).ConfigureAwait(false);
-            
+
             if (!hasPassword)
             {
                 return RedirectToPage("./SetPassword");
@@ -67,7 +67,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Profile
             }
 
             var changePasswordResult = await _userService.ChangePasswordAsync(User, Input.OldPassword, Input.NewPassword).ConfigureAwait(false);
-            
+
             if (!changePasswordResult.Succeeded)
             {
                 foreach (var error in changePasswordResult.Errors)

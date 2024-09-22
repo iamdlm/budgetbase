@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BudgetBase.Core.Application.DTOs.Persistence;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.RulesGroup;
@@ -13,8 +14,9 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.RulesGroups
 
         public RulesGroupIndexModel(
             IMapper mapper,
-            ITransactionRulesGroupService rulesGroupService)
-            : base(mapper, rulesGroupService)
+            ITransactionRulesGroupService rulesGroupService,
+            IUserService userService)
+            : base(mapper, rulesGroupService, userService)
         {
             _rulesGroupService = rulesGroupService;
         }
