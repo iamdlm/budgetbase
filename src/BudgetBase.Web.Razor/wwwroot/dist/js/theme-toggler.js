@@ -71,13 +71,11 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append('theme', theme);
 
         // Submit the form to update theme server-side
-        fetch("index?handler=UpdateThemePreference", {
+        fetch("/index?handler=UpdateThemePreference", {
             method: "POST",
             body: formData
         }).then(response => {
-            if (response.ok) {
-                console.log('Theme updated on server');
-            } else {
+            if (!response.ok) {
                 console.error('Failed to update theme on server');
             }
         }).catch(error => {
