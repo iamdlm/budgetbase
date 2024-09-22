@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BudgetBase.Core.Application.DTOs.Persistence;
 using BudgetBase.Core.Application.Exceptions;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Accounts;
@@ -14,7 +15,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Accounts
         private readonly IMapper _mapper;
         private readonly IAccountService _accountService;
 
-        public AccountDeleteModel(IMapper mapper, IAccountService accountService)
+        public AccountDeleteModel(IMapper mapper, IAccountService accountService, IUserService userService) : base(userService)
         {
             _mapper = mapper;
             _accountService = accountService;

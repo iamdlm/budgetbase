@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Accounts;
 using BudgetBase.Web.Razor.Helpers;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.Accounts
 {
@@ -15,7 +16,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Accounts
         private readonly IMapper _mapper;
         private readonly IAccountService _accountService;
 
-        public AccountEditModel(IMapper mapper, IAccountService accountService)
+        public AccountEditModel(IMapper mapper, IAccountService accountService, IUserService userService) : base(userService)
         {
             _mapper = mapper;
             _accountService = accountService;

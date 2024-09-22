@@ -20,5 +20,7 @@ namespace BudgetBase.Core.Application.Interfaces.Identity
         Task<ApplicationResponse> SetPhoneNumberAsync(ClaimsPrincipal principal, string phoneNumber);
         Task<ApplicationResponse> AddPasswordAsync(ClaimsPrincipal principal, string newPassword);
         Task<ApplicationResponse> UpdateUserAsync(ClaimsPrincipal principal, ApplicationUserDto user);
+        Task<string> GetThemeOptAsync();
+        Task UpdateThemeOptAsync(string theme);
     }
 }

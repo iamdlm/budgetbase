@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Imports;
 using BudgetBase.Web.Razor.Helpers;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.Imports
 {
@@ -19,8 +20,9 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Imports
             IImportService ImportService,
             ICountryService countryService,
             IBankService bankService,
-            IAccountService accountService)
-            : base(countryService, bankService, accountService)
+            IAccountService accountService,
+            IUserService userService)
+            : base(countryService, bankService, accountService, userService)
         {
             _mapper = mapper;
             _ImportService = ImportService;

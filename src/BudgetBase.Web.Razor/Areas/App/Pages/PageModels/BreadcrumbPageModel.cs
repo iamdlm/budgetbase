@@ -1,12 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Components.Breadcrumbs;
+using BudgetBase.Web.Razor.Pages.PageModels;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.PageModels
 {
-    public class BreadcrumbPageModel : PageModel
+    public class BreadcrumbPageModel : ThemeModel
     {
         public List<BreadcrumbViewModel> Breadcrumbs { get; private set; }
+        protected BreadcrumbPageModel(IUserService userService) : base(userService)
+        {
+        }
 
         public override void OnPageHandlerExecuting(PageHandlerExecutingContext context)
         {
@@ -52,7 +57,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.PageModels
             { "changepassword", "Change Password" },
             { "rulesgroups", "Categorizations" }
         };
-
+                
         private string GetRouteTitle(string route)
         {
             if (RouteTitles.TryGetValue(route, out string? value))

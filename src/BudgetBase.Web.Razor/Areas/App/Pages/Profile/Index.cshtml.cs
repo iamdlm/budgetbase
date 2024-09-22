@@ -22,7 +22,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Profile
             IUserService userService,
             IAuthService authService,
             IMapper mapper,
-            ICountryService countryService)
+            ICountryService countryService) : base(userService)
         {
             _userService = userService;
             _authService = authService;

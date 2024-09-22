@@ -1,4 +1,5 @@
-﻿<header id="topnav" class="defaultscroll sticky">
+﻿@Html.AntiForgeryToken()
+<header id="topnav" class="defaultscroll sticky">
     <div class="container">
         <!-- Logo container-->
         <div>
@@ -25,7 +26,7 @@
         </div>
 
         <!--Login button Start-->
-        <partial name="_LoginPartial" />
+        <partial name="_LoginPartial" model="Model.ThemeOpt" />
         <!--Login button End-->
 
         <div id="navigation">

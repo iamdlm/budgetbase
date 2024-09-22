@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Core.Application.Services;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.Imports
 {
@@ -13,7 +14,7 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Imports
         protected readonly IBankService _bankService;
         protected readonly IAccountService _accountService;
 
-        protected ImportPageModelBase(ICountryService countryService, IBankService bankService, IAccountService accountService)
+        protected ImportPageModelBase(ICountryService countryService, IBankService bankService, IAccountService accountService, IUserService userService) : base(userService)
         {
             _countryService = countryService;
             _bankService = bankService;

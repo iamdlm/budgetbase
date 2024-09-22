@@ -5,6 +5,7 @@ using BudgetBase.Core.Application.Interfaces.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.RulesGroup;
 using BudgetBase.Core.Application.Services.Persistence;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.RulesGroups
 {
@@ -17,7 +18,8 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.RulesGroups
             IMapper mapper,
             ITransactionRulesGroupService rulesGroupService,
             ICategoryService categoryService,
-            ITransactionRulesGroupOperatorService operatorService) : base(categoryService, operatorService)
+            ITransactionRulesGroupOperatorService operatorService,
+            IUserService userService) : base(categoryService, operatorService, userService)
         {
             _mapper = mapper;
             _rulesGroupService = rulesGroupService;

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Transactions;
 using BudgetBase.Core.Domain.Models;
 using BudgetBase.Web.Razor.Helpers;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.Transactions
 {
@@ -21,8 +22,9 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Transactions
             ICategoryService categoryService,
             IAccountService accountService,
             ITransactionEntryTypeService entryTypesService,
-            IRecurrencyTypeService recurrenciesService)
-                : base(accountService, categoryService, entryTypesService, recurrenciesService)
+            IRecurrencyTypeService recurrenciesService,
+            IUserService userService)
+                : base(accountService, categoryService, entryTypesService, recurrenciesService, userService)
         {
             _mapper = mapper;
             _transactionService = transactionService;

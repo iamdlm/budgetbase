@@ -1,18 +1,19 @@
 using BudgetBase.Core.Application.DTOs.Application;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
+using BudgetBase.Web.Razor.Pages.PageModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Globalization;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages
 {
-    public class DashboardModel : PageModel
+    public class DashboardModel : ThemeModel
     {
         private readonly IDashboardService _dashboardService;
         private readonly ITransactionService _transactionService;
 
-        public DashboardModel(IDashboardService dashboardService, ITransactionService transactionService)
+        public DashboardModel(IDashboardService dashboardService, ITransactionService transactionService, IUserService userService) : base(userService)
         {
             _dashboardService = dashboardService;
             _transactionService = transactionService;

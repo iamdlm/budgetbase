@@ -4,6 +4,7 @@ using BudgetBase.Core.Application.DTOs.Persistence;
 using BudgetBase.Core.Application.Exceptions;
 using BudgetBase.Core.Application.Interfaces;
 using BudgetBase.Core.Application.Interfaces.Application;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Imports;
 using BudgetBase.Web.Razor.Helpers;
@@ -23,8 +24,9 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Imports
             ICountryService countryService,
             IBankService bankService,
             IAccountService accountService,
-            IBankTransactionParserService parserService)
-            : base(countryService, bankService, accountService)
+            IBankTransactionParserService parserService,
+            IUserService userService)
+            : base(countryService, bankService, accountService, userService)
         {
             _mapper = mapper;
             _ImportService = ImportService;

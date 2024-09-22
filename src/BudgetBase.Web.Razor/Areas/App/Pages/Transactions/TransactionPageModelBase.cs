@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Web.Razor.Areas.App.Pages.Helpers;
+using BudgetBase.Core.Application.Interfaces.Identity;
 
 namespace BudgetBase.Web.Razor.Areas.App.Pages.Transactions
 {
@@ -18,7 +19,8 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Transactions
             IAccountService accountService,
             ICategoryService categoryService,
             ITransactionEntryTypeService entryTypesService,
-            IRecurrencyTypeService recurrenciesService)
+            IRecurrencyTypeService recurrenciesService,
+            IUserService userService) : base(userService)
         {
             _accountService = accountService;
             _categoryService = categoryService;

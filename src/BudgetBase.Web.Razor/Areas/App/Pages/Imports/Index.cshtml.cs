@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BudgetBase.Core.Application.DTOs.Persistence;
+using BudgetBase.Core.Application.Interfaces.Identity;
 using BudgetBase.Core.Application.Interfaces.Persistence;
 using BudgetBase.Web.Razor.Areas.App.Pages.PageModels;
 using BudgetBase.Web.Razor.Areas.App.ViewModels.Imports;
@@ -9,8 +10,8 @@ namespace BudgetBase.Web.Razor.Areas.App.Pages.Imports
 {
     public class ImportIndexModel : BaseIndexModel<ImportListViewModel, ImportViewModel, ImportDto>
     {
-        public ImportIndexModel(IMapper mapper, IImportService importService)
-             : base(mapper, importService)
+        public ImportIndexModel(IMapper mapper, IImportService importService, IUserService userService)
+             : base(mapper, importService, userService)
         {
         }
 

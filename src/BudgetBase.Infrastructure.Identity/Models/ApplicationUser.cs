@@ -8,5 +8,6 @@ namespace BudgetBase.Infrastructure.Identity.Models
         public DateTime? Birthdate { get; set; }
         public string? ProfilePic { get; set; }
         public Guid? CountryId { get; set; }
+        public string? ThemeOpt { get; set; }
     }
 }
