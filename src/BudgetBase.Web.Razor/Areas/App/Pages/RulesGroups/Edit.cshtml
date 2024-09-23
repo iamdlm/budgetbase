@@ -16,7 +16,7 @@
         <div class="card rounded shadow">
             <div class="p-4 border-bottom d-flex align-items-center">
                 <h5 class="title mb-0">Categorization</h5>
-                <a class="btn btn-primary ms-auto" asp-page="./Rules/Index" asp-route-groupId="@Model.RulesGroup.Id">Add Rules</a>
+                <a class="btn btn-dark ms-auto" asp-page="./Rules/Index" asp-route-groupId="@Model.RulesGroup.Id">Add Rules</a>
             </div>
             <div class="card-body">
                 <form method="post">
@@ -48,7 +48,7 @@
                     </div>
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
-                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <input type="submit" value="Save" class="btn btn-dark" />
                         <a class="btn btn-outline-primary" asp-page="./Index">Back to List</a>
                     </div>
                 </form>

@@ -14,14 +14,14 @@
 <link href="@Url.Content("~/dist/css/tabulator.custom.min.css")" rel="stylesheet">
 <div class="d-flex justify-content-between p-4 shadow rounded-top">
     <div class="col-sm-12 col-md-6">
-        <a asp-page="Create" asp-route-groupId="@Context.Request.Query["groupId"]" class="btn btn-primary">Create New</a>
+        <a asp-page="Create" asp-route-groupId="@Context.Request.Query["groupId"]" class="btn btn-dark">Create New</a>
         @if (allowImport)
         {
-            <a asp-area="App" asp-page="/Imports/Index" class="btn btn-primary">Import</a>
+            <a asp-area="App" asp-page="/Imports/Index" class="btn btn-dark">Import</a>
         }
         @if (applyRules)
         {
-            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#applyRules" class="btn btn-primary">Apply Rules</a>
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#applyRules" class="btn btn-dark">Apply Rules</a>
         }
     </div>
     <div class="col-sm-6 col-md-3 d-flex justify-content-end align-items-center ms-auto">
@@ -48,7 +48,7 @@
                         <p id="rules-text" class="text-muted">This will update all transaction categories that are not already set, according to the specified rules.</p>
                         <p id="rules-status" class="text-danger hide">An error occured, please try again. If the problem persists, contact our support team.</p>
                         <div class="mt-4">
-                            <button class="btn btn-primary" onclick="applyRules()">Continue</button>
+                            <button class="btn btn-dark" onclick="applyRules()">Continue</button>
                             <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </div>
