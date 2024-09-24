@@ -141,14 +141,20 @@
 
             .sidebar-dropdown {
                 > a:after {
-                    content: "\F0142" !important;
+                    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nd2hpdGUnIGNsYXNzPSd3LTYgaC02Jz48cGF0aCBmaWxsLXJ1bGU9J2V2ZW5vZGQnIGQ9J00xNi4yOCAxMS40N2EuNzUuNzUgMCAwIDEgMCAxLjA2bC03LjUgNy41YS43NS43NSAwIDAgMS0xLjA2LTEuMDZMMTQuNjkgMTIgNy43MiA1LjAzYS43NS43NSAwIDAgMSAxLjA2LTEuMDZsNy41IDcuNVonIGNsaXAtcnVsZT0nZXZlbm9kZCcgLz48L3N2Zz4=");
+                    background-size: cover;
+                    content: "" !important;
                     color: $dark;
+                    display: block;
                     font-family: 'Material Design Icons';
                     font-size: 14px;
+                    height: 10px;
+                    margin-top: 5px;
                     position: absolute;
                     right: 15px;
                     top: 17px;
                     transition: all 0.3s ease;
+                    width: 10px;
                 }
 
                 &.active {
@@ -177,12 +183,14 @@
 
                             a {
                                 &:before {
-                                    content: "\F09DF" !important;
+                                    content: "\2022"!important;
                                     color: $dark;
                                     font-family: 'Material Design Icons';
                                     margin-right: 4px;
                                     font-size: 16px;
                                     transition: all 0.3s ease;
+                                    text-align: center;
+                                    width: 16px;
                                 }
 
                                 .badge,

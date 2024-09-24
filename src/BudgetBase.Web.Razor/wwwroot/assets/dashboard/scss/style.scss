@@ -1,13 +1,4 @@
-/* Template Name: Landrick - Saas & Software Bootstrap 5 Landing & Admin Dashboard Template
-   Author: Shreethemes
-   E-mail: support@shreethemes.in
-   Created: August 2019
-   Version: 4.5.0
-   File Description: Main Css file of the template
-*/
-
-
-//Fonts
+// Fonts
 @import "custom/fonts/fonts";
 
 //Core files
@@ -42,3 +33,6 @@
 @import "custom/pages/user";
 @import "custom/pages/work";
 @import "custom/pages/switcher";
+
+// Custom
+@import "custom.scss";

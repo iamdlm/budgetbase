@@ -1,0 +1,1 @@
+{"version":3,"sources":["custom.scss"],"names":[],"mappings":"AAAA,aACI,IAAA,EACA,MAAA,EACA,SAAA,SACA,QAAA,KACA,UAAA,KACA,aAAA","file":"custom.min.css","sourcesContent":["#output-icon {\r\n    top: 0;\r\n    right: 0;\r\n    position: absolute;\r\n    padding: 10px;\r\n    font-size: 30px;\r\n    margin-right: 10px;\r\n}"]}

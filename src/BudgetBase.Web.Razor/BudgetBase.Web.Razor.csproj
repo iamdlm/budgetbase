@@ -28,8 +28,7 @@
   <ItemGroup>
     <Content Remove="wwwroot\assets\bootstrap-dark.scss" />
     <Content Remove="wwwroot\assets\bootstrap.scss" />
-    <Content Remove="wwwroot\assets\css\style-dark.custom.scss" />
-    <Content Remove="wwwroot\assets\css\style.custom.scss" />
+    <Content Remove="wwwroot\assets\dashboard\scss\custom.scss" />
     <Content Remove="wwwroot\assets\icons.scss" />
     <Content Remove="wwwroot\assets\style-dark.scss" />
     <Content Remove="wwwroot\assets\style.scss" />
@@ -41,6 +40,10 @@
     <None Remove="Areas\App\Pages\Shared\SidebarDark.cshtml.css" />
     <None Remove="Areas\App\Pages\Shared\TopHeader.cshtml.css" />
     <None Remove="Areas\App\Pages\Shared\_TopHeader - Copy.cshtml.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\assets\dashboard\scss\custom.scss" />
   </ItemGroup>
 
   <ItemGroup>
@@ -58,10 +61,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\assets\css\style-dark.custom.scss" />
-    <None Include="wwwroot\assets\css\style.custom.scss" />
     <None Include="wwwroot\assets\dashboard\scss\bootstrap-dark.scss" />
     <None Include="wwwroot\assets\dashboard\scss\bootstrap.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom.scss" />
     <None Include="wwwroot\assets\dashboard\scss\custom\components\_accordion.scss" />
     <None Include="wwwroot\assets\dashboard\scss\custom\components\_alerts.scss" />
     <None Include="wwwroot\assets\dashboard\scss\custom\components\_avatar.scss" />
@@ -236,18 +238,6 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Update="Pages\Shared\_LoginPartial.cshtml">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\assets\css\dashboard.custom.scss">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\assets\css\variables-dark.custom.scss">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Update="wwwroot\assets\css\variables.custom.scss">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
