@@ -8,7 +8,11 @@ var gulp = require("gulp"),
     sourcemaps = require("gulp-sourcemaps"),
     cleancss = require('gulp-clean-css'),
     rename = require('gulp-rename'),
-    del = require('del');
+    del = require('del'),
+    uglify = require('gulp-uglify'),
+    gulpif = require('gulp-if');
+
+var generateSourceMaps = false;
 
 const paths = {
     base: {
@@ -32,8 +36,7 @@ const paths = {
         },
         css: {
             landing: "wwwroot/dist/landing/css",
-            dashboard: "wwwroot/dist/dashboard/css",
-            custom: "wwwroot/dist/css",
+            dashboard: "wwwroot/dist/dashboard/css"
         },
         js: {
             dir: "wwwroot/dist/js",
@@ -47,11 +50,11 @@ const paths = {
             dir: "wwwroot/assets",
             files: "wwwroot/assets/**/*"
         },
-        css: {
-            dir: "wwwroot/assets/css",
-            files: "wwwroot/assets/css/**/*",
-            main: "wwwroot/assets/css/*.scss"
-        },
+        //css: {
+        //    dir: "wwwroot/assets/css",
+        //    files: "wwwroot/assets/css/**/*",
+        //    main: "wwwroot/assets/css/*.scss"
+        //},
         html: {
             dir: "wwwroot/assets",
             files: "wwwroot/assets/**/*.html",
@@ -67,6 +70,7 @@ const paths = {
             main: "wwwroot/assets/js/*.js",
             landing: "wwwroot/assets/landing/js/*.js",
             dashboard: "wwwroot/assets/dashboard/js/*.js",
+            libs: "wwwroot/assets/libs/**/*.js"
         },
         partials: {
             dir: "wwwroot/assets/partials",
@@ -82,6 +86,11 @@ const paths = {
                 dir: "wwwroot/assets/dashboard/scss",
                 files: "wwwroot/assets/dashboard/scss/**/*",
                 main: "wwwroot/assets/dashboard/scss/*.scss"
+            },
+            libs: {
+                dir: "wwwroot/assets/libs",
+                files: "wwwroot/assets/libs/**/*",
+                main: "wwwroot/assets/libs/**/*.scss"
             }
         }
     }
@@ -92,13 +101,21 @@ gulp.task("watch", function () {
     gulp.watch(paths.src.js.dir, 'js');
 });
 
+gulp.task('copy:libs', function () {
+    return gulp
+        .src(npmdist(), { base: paths.base.node.dir })
+        .pipe(rename(function (path) {
+            path.dirname = path.dirname.replace(/\/dist/, '').replace(/\\dist/, '');
+        }))
+        .pipe(gulp.dest(paths.dist.libs.dir));
+});
+
 gulp.task("scss:landing", function () {
     return gulp
         .src(paths.src.scss.landing.main)
         .pipe(sourcemaps.init())
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(autoprefixer())
-        //.pipe(gulp.dest(paths.dist.css.landing))
         .pipe(cleancss())
         .pipe(rename({ suffix: ".min" }))
         .pipe(sourcemaps.write("./"))
@@ -112,7 +129,6 @@ gulp.task("scss:dashboard", function () {
         .pipe(sourcemaps.init())
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(autoprefixer())
-        //.pipe(gulp.dest(paths.dist.css.dashboard))
         .pipe(cleancss())
         .pipe(rename({ suffix: ".min" }))
         .pipe(sourcemaps.write("./"))
@@ -120,18 +136,32 @@ gulp.task("scss:dashboard", function () {
 
 });
 
-gulp.task("scss:custom", function () {
+gulp.task("scss:libs", function () {
     return gulp
-        .src(paths.src.css.main)
-        .pipe(sourcemaps.init())
+        .src(paths.src.scss.libs.main)
+        .pipe(gulpif(generateSourceMaps, sourcemaps.init()))
         .pipe(sass.sync().on('error', sass.logError))
         .pipe(autoprefixer())
-        //.pipe(gulp.dest(paths.dist.css.landing))
         .pipe(cleancss())
-        .pipe(rename({ suffix: ".min" }))
+        .pipe(rename(function (path) {
+            path.extname = ".min.css";
+        }))
         .pipe(sourcemaps.write("./"))
-        .pipe(gulp.dest(paths.dist.css.custom));
+        .pipe(gulpif(generateSourceMaps, sourcemaps.write("./")))
+        .pipe(gulp.dest(paths.dist.libs.dir));
+});
 
+gulp.task("js:libs", function () {
+    return gulp
+        .src(paths.src.js.libs)
+        .pipe(gulpif(generateSourceMaps, sourcemaps.init()))
+        .pipe(uglify())
+        .pipe(rename(function (path) {
+            path.extname = ".min.js";
+        }))
+        .pipe(sourcemaps.write("./"))
+        .pipe(gulpif(generateSourceMaps, sourcemaps.write("./")))
+        .pipe(gulp.dest(paths.dist.libs.dir));
 });
 
 gulp.task('js', function () {
@@ -152,15 +182,6 @@ gulp.task('js:dashboard', function () {
         .pipe(gulp.dest(paths.dist.js.dashboard));
 });
 
-gulp.task('copy:libs', function () {
-    return gulp
-        .src(npmdist(), { base: paths.base.node.dir })
-        .pipe(rename(function (path) {
-            path.dirname = path.dirname.replace(/\/dist/, '').replace(/\\dist/, '');
-        }))
-        .pipe(gulp.dest(paths.dist.libs.dir));
-});
-
 gulp.task('clean:packageLock', function (callback) {
     del.sync(paths.base.packageLock.files);
     callback();
@@ -176,12 +197,11 @@ gulp.task('build',
         gulp.parallel(
             'clean:packageLock',
             'clean:dist',
-            //'copy:all',
             'copy:libs'),
-        //'fileinclude',
         'js',
         'js:landing',
         'js:dashboard',
+        'js:libs',
         'scss:landing',
         'scss:dashboard',
-        'scss:custom'));
+        'scss:libs'));
