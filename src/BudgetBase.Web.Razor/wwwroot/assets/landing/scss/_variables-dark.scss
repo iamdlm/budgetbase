@@ -11,7 +11,7 @@ $fw-medium: 600;
 $font-family-secondary:     ui-sans-serif, system-ui, sans-serif;
 
 //Colors
-$muted:                     #9bacc4;
+$muted:                     #a1a1aa;
 
 //Shadow
 $shadow-sm:                 0 .125rem .25rem rgba(#adb5bd,.15);
@@ -21,7 +21,7 @@ $shadow-md:                 0 5px 13px rgba(#adb5bd, .2);
 $overlay-black:             #161c2d;
 
 // Overlay
-$overlay:                   rgba(#1c2836, 0.7);
+$overlay:                   rgba(#18181b, 0.7);
 $gradient-overlay:          rgba($primary, 0.5);
 $bg-overlay-white:          rgba(0, 0, 0 , 0.4);
 $linear-gradient:           linear-gradient(to bottom, rgba($overlay-black, 0) 0%, rgba($overlay-black, 0.0) 50%, rgba($overlay-black, 0.3) 80%, rgba($overlay-black, 1) 100%);
@@ -33,17 +33,17 @@ $gradient-white-overlay:    linear-gradient(to bottom, rgba($white, 0) 0%, rgba(
 $card-overlay:              linear-gradient(to bottom, transparent 0%, transparent 25%, transparent 35%, rgba($overlay-black, 0.9) 100%);
 
 //Navbar
-$nav-sticky-bg:             #1c2836;
-$submenu-bg:                #1c2836;
+$nav-sticky-bg:             #18181b;
+$submenu-bg:                #18181b;
 $megamenu-head-text:        $white;
-$topnav-bg:                 #1c2836;
-$navbar-white-bg:           #1c2836;
+$topnav-bg:                 #18181b;
+$navbar-white-bg:           #18181b;
 
 //Nav-pills
 $nav-pills-bg:              $dark;
 $nav-pills-color:           $white;
 $navs-bg:                   #161c2d;
-$nav-link-alt:              #1c2836;
+$nav-link-alt:              #18181b;
 
 //Blog & Works
 $blog-overlay-dark:           #161c2d;
@@ -67,8 +67,8 @@ $foot-social-color-white:   $white;
 
 //Forms
 $form-placeholder:          $gray-300;
-$subscribe-form-bg:         #1c2836;
-$datepicker-bg:             #1c2836;
+$subscribe-form-bg:         #18181b;
+$datepicker-bg:             #18181b;
 $datepicker-text:           $white;
 
 //Features
@@ -78,18 +78,18 @@ $feature-text-white:        $white;
 $back-to-top-color:         $white;
 
 //text
-$text-color-white:          #1c2836;
-$bg-white-color:            #1c2836;
+$text-color-white:          #18181b;
+$bg-white-color:            #18181b;
 
 //Testimonial
-$testi-before-border:       #1c2836;
+$testi-before-border:       #18181b;
 
 //Pricing
-$pricing-bg:                #1c2836;
+$pricing-bg:                #18181b;
 
 //Homes
-$animation-bg:              #1c2836;
-$shape-bg:                  #1c2836;
+$animation-bg:              #18181b;
+$shape-bg:                  #18181b;
 
 //Apexcharts
 $apex-tooltip-bg:           #161c2d;
@@ -524,7 +524,7 @@ $position-values: (
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   #1c2836;
+$body-bg:                   #18181b;
 $body-color:                $gray-900;
 $body-text-align:           null;
 
@@ -791,7 +791,7 @@ $table-cell-padding-x-sm:     .25rem;
 $table-cell-vertical-align:   top;
 
 $table-color:                 var(--#{$prefix}body-color);
-$table-bg:                    #1c2836;
+$table-bg:                    #18181b;
 $table-accent-bg:             transparent;
 
 $table-th-font-weight:        null;
@@ -1261,7 +1261,7 @@ $dropdown-padding-y:                .5rem;
 $dropdown-spacer:                   .125rem;
 $dropdown-font-size:                $font-size-base;
 $dropdown-color:                    $body-color;
-$dropdown-bg:                       #1c2836;
+$dropdown-bg:                       #18181b;
 $dropdown-border-color:             $gray-200;
 $dropdown-border-radius:            $border-radius;
 $dropdown-border-width:             $border-width;
@@ -1319,7 +1319,7 @@ $pagination-padding-x-lg:           1.5rem;
 $pagination-font-size:              $font-size-base;
 
 $pagination-color:                  $white;
-$pagination-bg:                     #1c2836;
+$pagination-bg:                     #18181b;
 $pagination-border-radius:          $border-radius;
 $pagination-border-width:           $border-width;
 $pagination-margin-start:           ($pagination-border-width * -1);
@@ -1373,7 +1373,7 @@ $card-cap-bg:                       rgba($black, .03);
 $card-cap-color:                    null;
 $card-height:                       null;
 $card-color:                        null;
-$card-bg:                           #1c2836;
+$card-bg:                           #18181b;
 $card-img-overlay-padding:          $spacer;
 $card-group-margin:                 $grid-gutter-width * .5;
 // scss-docs-end card-variables
@@ -1449,7 +1449,7 @@ $form-feedback-tooltip-border-radius: $tooltip-border-radius;
 
 // scss-docs-start popover-variables
 $popover-font-size:                 $font-size-sm;
-$popover-bg:                        #1c2836;
+$popover-bg:                        #18181b;
 $popover-max-width:                 276px;
 $popover-border-width:              $border-width;
 $popover-border-color:              var(--#{$prefix}border-color-translucent);
@@ -1524,7 +1524,7 @@ $modal-dialog-margin-y-sm-up:       1.75rem;
 $modal-title-line-height:           $line-height-base;
 
 $modal-content-color:               null;
-$modal-content-bg:                  #1c2836;
+$modal-content-bg:                  #18181b;
 $modal-content-border-color:        var(--#{$prefix}border-color-translucent);
 $modal-content-border-width:        $border-width;
 $modal-content-border-radius:       $border-radius-lg;
@@ -1648,7 +1648,7 @@ $breadcrumb-padding-y:              0;
 $breadcrumb-padding-x:              0;
 $breadcrumb-item-padding-x:         .5rem;
 $breadcrumb-margin-bottom:          1rem;
-$breadcrumb-bg:                     #1c2836;
+$breadcrumb-bg:                     #18181b;
 $breadcrumb-divider-color:          $gray-600;
 $breadcrumb-active-color:           $gray-600;
 $breadcrumb-divider:                quote("/");
@@ -1737,7 +1737,7 @@ $offcanvas-transition-duration:     .3s;
 $offcanvas-border-color:            $modal-content-border-color;
 $offcanvas-border-width:            $modal-content-border-width;
 $offcanvas-title-line-height:       $modal-title-line-height;
-$offcanvas-bg-color:                #1c2836;
+$offcanvas-bg-color:                #18181b;
 $offcanvas-color:                   $modal-content-color;
 $offcanvas-box-shadow:              $modal-content-box-shadow-xs;
 $offcanvas-backdrop-bg:             $modal-backdrop-bg;

@@ -11,7 +11,7 @@ $fw-medium: 600;
 $font-family-secondary:     ui-sans-serif, system-ui, sans-serif;
 
 //Colors
-$muted:                     #9bacc4;
+$muted:                     #a1a1aa;
 
 //Shadow
 $shadow-sm:                 0 .125rem .25rem rgba(#adb5bd,.15);
@@ -21,13 +21,13 @@ $shadow-md:                 0 5px 13px rgba(#adb5bd, .2);
 $overlay-black:             #161c2d;
 
 // Overlay
-$overlay:                   rgba(#1c2836, 0.7);
+$overlay:                   rgba(#18181b, 0.7);
 $bg-overlay-white:          rgba(0, 0, 0 , 0.4);
 
 //Sidebar
-$sidebar-white-bg:          #1c2836;
-$sidebar-dark:              #1c2836;
-$top-header-white-bg:       #1c2836;
+$sidebar-white-bg:          #18181b;
+$sidebar-dark:              #18181b;
+$top-header-white-bg:       #18181b;
 $sidebar-text-color:        rgba(#ffffff, .5);
 $sidebar-icon-bg:           #1f2d3d;
 $sidebar-light-icon:        #f8f9fa;
@@ -36,7 +36,7 @@ $sidebar-light-icon:        #f8f9fa;
 $simplebar-color:            #2a3c51;
 
 //Apexchart
-$apexchart-tool-bg:          #1c2836;
+$apexchart-tool-bg:          #18181b;
 $apex-border-color:          #2a3c51;
 $apexchart-color:            #e9ecef;
 
@@ -50,20 +50,20 @@ $content-bg:                #161c2d;
 
 //Footer
 $footer:                    #212f40;
-$footer-bg:                 #1c2836;
+$footer-bg:                 #18181b;
 $foot-social-color:         #adb5bd;
 $social-border-color:       lighten($footer, 5%);
 $foot-social-color-white:   $white;
 
 //Forms
 $form-placeholder:          $gray-300;
-$subscribe-form-bg:         #1c2836;
+$subscribe-form-bg:         #18181b;
 
 //text
-$bg-white-color:            #1c2836;
+$bg-white-color:            #18181b;
 
 //Pricing
-$pricing-bg:                #1c2836;
+$pricing-bg:                #18181b;
 
 $heading-font-sizes: (
     "h1": 42px,
@@ -510,7 +510,7 @@ $position-values: (
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   #1c2836;
+$body-bg:                   #18181b;
 $body-color:                $gray-900;
 $body-text-align:           null;
 $sidebar-primary:           $white;
@@ -779,7 +779,7 @@ $table-cell-padding-x-sm:     .25rem;
 $table-cell-vertical-align:   top;
 
 $table-color:                 var(--#{$prefix}body-color);
-$table-bg:                    #1c2836;
+$table-bg:                    #18181b;
 $table-accent-bg:             transparent;
 
 $table-th-font-weight:        null;
@@ -1249,7 +1249,7 @@ $dropdown-padding-y:                .5rem;
 $dropdown-spacer:                   .125rem;
 $dropdown-font-size:                $font-size-base;
 $dropdown-color:                    $body-color;
-$dropdown-bg:                       #1c2836;
+$dropdown-bg:                       #18181b;
 $dropdown-border-color:             $gray-200;
 $dropdown-border-radius:            $border-radius;
 $dropdown-border-width:             $border-width;
@@ -1307,7 +1307,7 @@ $pagination-padding-x-lg:           1.5rem;
 $pagination-font-size:              $font-size-base;
 
 $pagination-color:                  $white;
-$pagination-bg:                     #1c2836;
+$pagination-bg:                     #18181b;
 $pagination-border-radius:          $border-radius;
 $pagination-border-width:           $border-width;
 $pagination-margin-start:           ($pagination-border-width * -1);
@@ -1361,7 +1361,7 @@ $card-cap-bg:                       rgba($black, .03);
 $card-cap-color:                    null;
 $card-height:                       null;
 $card-color:                        null;
-$card-bg:                           #1c2836;
+$card-bg:                           #18181b;
 $card-img-overlay-padding:          $spacer;
 $card-group-margin:                 $grid-gutter-width * .5;
 // scss-docs-end card-variables
@@ -1437,7 +1437,7 @@ $form-feedback-tooltip-border-radius: $tooltip-border-radius;
 
 // scss-docs-start popover-variables
 $popover-font-size:                 $font-size-sm;
-$popover-bg:                        #1c2836;
+$popover-bg:                        #18181b;
 $popover-max-width:                 276px;
 $popover-border-width:              $border-width;
 $popover-border-color:              var(--#{$prefix}border-color-translucent);
@@ -1512,7 +1512,7 @@ $modal-dialog-margin-y-sm-up:       1.75rem;
 $modal-title-line-height:           $line-height-base;
 
 $modal-content-color:               null;
-$modal-content-bg:                  #1c2836;
+$modal-content-bg:                  #18181b;
 $modal-content-border-color:        var(--#{$prefix}border-color-translucent);
 $modal-content-border-width:        $border-width;
 $modal-content-border-radius:       $border-radius-lg;

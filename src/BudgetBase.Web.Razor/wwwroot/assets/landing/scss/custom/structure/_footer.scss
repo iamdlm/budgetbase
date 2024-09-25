@@ -7,9 +7,7 @@
 /*===============================*/
 
 .footer {
-    background: $footer;
     position: relative;
-    color: $footer-text;
 
     .footer-py-60 {
         padding: 60px 0;        
@@ -70,7 +68,7 @@
     }
     .footer-border,
     .footer-bar {
-        border-top: 1px solid lighten($footer, 5%);
+        box-shadow: $shadow;
     }
     .border {
         border-color: lighten($footer, 5%) !important;
