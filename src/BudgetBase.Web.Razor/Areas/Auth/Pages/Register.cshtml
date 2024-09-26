@@ -5,7 +5,10 @@
 }
 
 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
-    <a asp-area="" asp-page="Index"><img src="~/assets/images/logo-dark.png" class="mb-4 d-block mx-auto" alt=""></a>
+    <a asp-area="" asp-page="Index">
+        <img src="~/assets/images/logo-dark.png" class="mb-4 d-block mx-auto logo-light-mode" alt="">
+        <img src="~/assets/images/logo-light.png" class="mb-4 d-block mx-auto logo-dark-mode" alt="">
+    </a>
     <h5 class="mb-3 text-center">Register your account</h5>
     <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
     <div class="form-floating mb-3">

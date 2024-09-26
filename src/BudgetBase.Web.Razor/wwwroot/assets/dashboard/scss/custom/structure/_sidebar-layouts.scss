@@ -183,7 +183,7 @@
 
                             a {
                                 &:before {
-                                    content: "\2022"!important;
+                                    content: "\2022" !important;
                                     color: $dark;
                                     font-family: 'Material Design Icons';
                                     margin-right: 4px;
@@ -235,12 +235,14 @@
                     display: inline-block;
                 }
 
+                .l-dark,
                 .logo-dark-mode {
                     display: none !important;
                 }
 
+                .l-light,
                 .logo-light-mode {
-                    display: none !important;
+                    display: block !important;
                 }
             }
 
@@ -350,12 +352,14 @@
                 display: none;
             }
 
+            .l-dark,
             .logo-dark-mode {
-                display: none;
+                display: none !important;
             }
 
+            l-light,
             .logo-light-mode {
-                display: inline-block;
+                display: inline-block !important;
             }
         }
     }
@@ -407,12 +411,14 @@
                     .big {
                         display: none;
 
+                        .l-dark,
                         .logo-dark-mode {
-                            display: none;
+                            display: none !important;
                         }
 
+                        .l-light,
                         .logo-light-mode {
-                            display: inline-block;
+                            display: inline-block !important;
                         }
 
                         @media (min-width: 768px) and (max-width: 1024px) {
@@ -549,6 +555,22 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.form-signin {
+    form {
+        a {
+            .l-light,
+            .logo-light-mode {
+                display: block !important;
+            }
+
+            .l-dark,
+            .logo-dark-mode {
+                display: none !important;
             }
         }
     }
