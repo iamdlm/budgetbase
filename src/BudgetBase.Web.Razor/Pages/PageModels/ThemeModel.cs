@@ -28,5 +28,14 @@ namespace BudgetBase.Web.Razor.Pages.PageModels
             await _userService.UpdateThemeOptAsync(theme).ConfigureAwait(false);
             return RedirectToPage();
         }
+
+        public async Task<JsonResult> OnGetGetThemePreference()
+        {
+            // Fetch the user's theme preference from the database
+            var theme = await _userService.GetThemeOptAsync().ConfigureAwait(false);
+            ThemeOpt = theme;
+
+            return new JsonResult(new { theme });
+        }
     }
 }

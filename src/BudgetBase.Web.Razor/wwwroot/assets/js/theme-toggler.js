@@ -7,11 +7,32 @@
     const themeToggle = document.getElementById('theme-toggle');
     let currentTheme = localStorage.getItem('theme') || (new Date().getHours() > 18 || new Date().getHours() < 6 ? 'dark' : 'light');
 
-    // Set the initial theme
-    setTheme(currentTheme);
+    // Function to fetch theme preference from server
+    function fetchThemePreference() {
+        if (themeToggle.dataset.authenticated === 'true') {
+            fetch("/index?handler=GetThemePreference")
+                .then(response => response.json())
+                .then(data => {
+                    currentTheme = data.theme;
+                    localStorage.setItem('theme', currentTheme);
+                    setTheme(currentTheme);
+                    updateThemeButton(currentTheme);
+                })
+                .catch(error => {
+                    console.error('Error fetching theme preference:', error);
+                    setDefaultTheme();
+                });
+        } else {
+            setDefaultTheme();
+        }
+    }
 
-    // Set the initial button icon
-    updateThemeButton(currentTheme);
+    // Function to set default theme
+    function setDefaultTheme() {
+        currentTheme = localStorage.getItem('theme') || (new Date().getHours() > 18 || new Date().getHours() < 6 ? 'dark' : 'light');
+        setTheme(currentTheme);
+        updateThemeButton(currentTheme);
+    }
 
     // Toggle theme on button click
     themeToggle.addEventListener('click', function () {
@@ -28,6 +49,9 @@
         setTheme(currentTheme);
         updateThemeButton(currentTheme);
     });
+
+    // Fetch theme preference on page load
+    fetchThemePreference();
 
     // Toggle theme function
     function setTheme(theme) {
