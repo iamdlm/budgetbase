@@ -5,7 +5,7 @@
     height: 100vh;
 
     .sidebar-wrapper {
-        box-shadow: $shadow;
+        border: 1px solid $border-zinc-200;
         background-color: $sidebar-white-bg;
         transition: all 0.3s ease;
         width: 300px;
@@ -53,7 +53,7 @@
             padding: 10px 20px;
             display: flex;
             align-items: center;
-            height: 71px;
+            height: 70px;
 
             > a {
                 text-transform: uppercase;
@@ -324,7 +324,7 @@
 
         .sidebar-header,
         .sidebar-menu {
-            border-top: 1px solid $gray-200;
+            border-top: 1px solid $border-zinc-200;
         }
 
         .sidebar-header .user-info .user-role,
@@ -382,8 +382,8 @@
 
             .header-bar {
                 background: $top-header-white-bg;
-                height: 71px;
-                box-shadow: $shadow;
+                height: 72px;
+                border-bottom: 1px solid $border-zinc-200;
                 position: relative;
                 justify-content: space-between;
                 align-items: center;

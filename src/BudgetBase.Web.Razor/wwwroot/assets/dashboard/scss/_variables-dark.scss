@@ -101,7 +101,7 @@ $gray-600: #ced4da;
 $gray-500: #adb5bd;
 $gray-400: #6c757d;
 $gray-300: #495057;
-$gray-200: #3f3f464d;
+$gray-200: #2a3c51;
 $gray-100: #1f2d3d;
 $black:    #000000;
 // scss-docs-end gray-color-variables
@@ -1745,3 +1745,6 @@ $kbd-bg:                            var(--#{$prefix}body-color);
 $nested-kbd-font-weight:            null; // Deprecated in v5.2.0, removing in v6
 
 $pre-color:                         null;
+
+$border-zinc-200: rgba(63, 63, 70, 0.3);
+$border-zinc-700: #3f3f46;
