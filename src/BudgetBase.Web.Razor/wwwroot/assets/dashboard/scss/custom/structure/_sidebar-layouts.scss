@@ -79,6 +79,7 @@
         }
 
         .sidebar-menu {
+            font-size: 14px;
             padding: 16px 0;
 
             .header-menu {
@@ -170,7 +171,7 @@
                 &:hover,
                 &.active {
                     > a:after {
-                        color: $sidebar-primary;
+                        color: $sidebar-dark;
                     }
                 }
 
@@ -335,7 +336,7 @@
         .sidebar-brand > a,
         .sidebar-menu li a {
             color: $sidebar-text-color;
-            font-weight: 600;
+            font-weight: normal;
         }
 
         .sidebar-menu li:hover > a,
