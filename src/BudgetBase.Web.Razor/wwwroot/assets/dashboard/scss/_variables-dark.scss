@@ -32,14 +32,6 @@ $sidebar-text-color:        rgba(#ffffff, .5);
 $sidebar-icon-bg:           #1f2d3d;
 $sidebar-light-icon:        #f8f9fa;
 
-//Simplebar
-$simplebar-color:            #2a3c51;
-
-//Apexchart
-$apexchart-tool-bg:          #18181b;
-$apex-border-color:          #2a3c51;
-$apexchart-color:            #e9ecef;
-
 //Nav-pills
 $nav-pills-bg:              $dark;
 $nav-pills-color:           $white;
@@ -600,8 +592,11 @@ $border-widths: (
   5: 5px
 );
 
+$border-zinc-200: rgba(63, 63, 70, 0.3);
+$border-zinc-700: #3f3f46;
+
 $border-style:                solid;
-$border-color:                $gray-200;
+$border-color:                $border-zinc-200;
 $border-color-translucent:    rgba($black, .175);
 // scss-docs-end border-variables
 
@@ -1746,5 +1741,10 @@ $nested-kbd-font-weight:            null; // Deprecated in v5.2.0, removing in v
 
 $pre-color:                         null;
 
-$border-zinc-200: rgba(63, 63, 70, 0.3);
-$border-zinc-700: #3f3f46;
+//Simplebar
+$simplebar-color: $border-zinc-200;
+
+//Apexchart
+$apexchart-tool-bg: #18181b;
+$apex-border-color: $border-zinc-200;
+$apexchart-color: #e9ecef;

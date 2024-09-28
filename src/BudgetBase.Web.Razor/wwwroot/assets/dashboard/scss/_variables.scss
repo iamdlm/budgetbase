@@ -611,8 +611,11 @@ $border-widths: (
   5: 5px
 );
 
+$border-zinc-200: #e4e4e7;
+$border-zinc-700: #e4e4e7;
+
 $border-style:                solid;
-$border-color:                $gray-200;
+$border-color:                $border-zinc-200;
 $border-color-translucent:    rgba($black, .175);
 // scss-docs-end border-variables
 
@@ -1757,5 +1760,4 @@ $nested-kbd-font-weight:            null; // Deprecated in v5.2.0, removing in v
 
 $pre-color:                         null;
 
-$border-zinc-200: #e4e4e7;
-$border-zinc-700: #e4e4e7;
+
