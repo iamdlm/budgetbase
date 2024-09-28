@@ -4,17 +4,15 @@
 
 .page-wrapper {
     .sidebar-wrapper {
-        &.sidebar-dark {
-            .sidebar-brand {
-                .l-light,
-                .logo-dark-mode {
-                    display: block !important;
-                }
+        .sidebar-brand {
+            .l-light,
+            .logo-dark-mode {
+                display: block !important;
+            }
 
-                .l-dark,
-                .logo-light-mode {
-                    display: none !important;
-                }
+            .l-dark,
+            .logo-light-mode {
+                display: none !important;
             }
         }
     }
