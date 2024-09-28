@@ -643,3 +643,11 @@ $value in $theme-colors {
         }
     }
 }
+
+.border-zinc-200 {
+    border: 1px solid $border-zinc-200;
+}
+
+.border-zinc-700 {
+    border: 1px solid $border-zinc-700;
+}
