@@ -365,3 +365,11 @@ $value in $theme-colors {
         flex: 1;
     }
 }
+
+.border-zinc-200 {
+    border: 1px solid $border-zinc-200;
+}
+
+.border-zinc-700 {
+    border: 1px solid $border-zinc-700;
+}
