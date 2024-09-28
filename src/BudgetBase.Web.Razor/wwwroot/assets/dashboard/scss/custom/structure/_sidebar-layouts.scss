@@ -335,7 +335,7 @@
         .sidebar-header .user-info .user-status,
         .sidebar-brand > a,
         .sidebar-menu li a {
-            color: $sidebar-text-color;
+            color: $muted;
             font-weight: normal;
         }
 
@@ -348,7 +348,7 @@
         .sidebar-menu .sidebar-dropdown.active > a,
         .sidebar-header .user-info,
         .sidebar-brand > a:hover {
-            color: $sidebar-primary !important;
+            color: $dark !important;
         }
 
         .sidebar-brand {
