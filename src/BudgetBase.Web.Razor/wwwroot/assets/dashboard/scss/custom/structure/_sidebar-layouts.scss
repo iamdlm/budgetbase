@@ -145,7 +145,7 @@
 
             .sidebar-dropdown {
                 > a:after {
-                    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nd2hpdGUnIGNsYXNzPSd3LTYgaC02Jz48cGF0aCBmaWxsLXJ1bGU9J2V2ZW5vZGQnIGQ9J00xNi4yOCAxMS40N2EuNzUuNzUgMCAwIDEgMCAxLjA2bC03LjUgNy41YS43NS43NSAwIDAgMS0xLjA2LTEuMDZMMTQuNjkgMTIgNy43MiA1LjAzYS43NS43NSAwIDAgMSAxLjA2LTEuMDZsNy41IDcuNVonIGNsaXAtcnVsZT0nZXZlbm9kZCcgLz48L3N2Zz4=");
+                    background-image: $svg-dark;
                     background-size: cover;
                     content: "" !important;
                     color: $dark;
