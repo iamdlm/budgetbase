@@ -95,3 +95,44 @@
         }
     }
 }
+
+.tabulator {
+    .tabulator-header {
+        background-color: $body-bg !important;
+        border-bottom: 1px solid $border-zinc-200 !important;
+        color: $muted !important;
+
+        .tabulator-col {
+            background-color: $body-bg !important;
+        }
+    }
+
+    .tabulator-tableholder {
+        .tabulator-row {
+            background-color: $body-bg !important;
+            border-bottom: 1px solid $border-zinc-200 !important;
+        }
+    }
+
+    .tabulator-footer {
+        background-color: $body-bg !important;
+        color: $muted !important;
+
+        .tabulator-page {
+            color: $dark !important;
+
+            &.active {
+                background-color: #27272a !important;
+                border-color: transparent !important;
+            }
+
+            &:not(.disabled) {
+                &:hover {
+                    background-color: #27272a !important;
+                    border-color: transparent !important;
+                    color: $dark !important;
+                }
+            }
+        }
+    }
+}

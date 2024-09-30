@@ -1,7 +1,11 @@
 ﻿.tabulator {
+    font-size: 14px;
+
     .tabulator-header {
         border-top: none;
         border-bottom: 1px solid #e9ecef;
+        font-weight: normal;
+        color: #71717a;
 
         .tabulator-col {
             .tabulator-col-content {
@@ -27,6 +31,7 @@
     .tabulator-footer {
         background-color: #fff;
         border-top: none;
+        color: #71717a;
 
         .tabulator-footer-contents {
             padding-left: 0;
@@ -35,16 +40,22 @@
         }
 
         .tabulator-page {
+            background-color: transparent !important;
+            border-color: transparent !important;
+            padding: 2px 5px;
+
             &.active {
-                background-color: #2f55d4;
-                border-color: #2f55d4;
+                background-color: transparent !important;
+                border-color: transparent !important;
             }
 
             &:not(.disabled) {
+                background-color: transparent !important;
+                border-color: transparent !important;
+
                 &:hover {
-                    background-color: #2848b4;
-                    border-color: #2848b4;
-                    color: #fff;
+                    background-color: #adb5bd !important;
+                    color: #3c4858;
                 }
             }
         }

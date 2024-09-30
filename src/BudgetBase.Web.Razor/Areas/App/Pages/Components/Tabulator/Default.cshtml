@@ -106,8 +106,9 @@
         paginationCounter: function (pageSize, currentRow, currentPage, totalRows, totalPages) {
             var startRow = (currentPage - 1) * pageSize + 1;
             var endRow = Math.min(currentPage * pageSize, totalRows);
-            return "Showing " + startRow + " to " + endRow + " of " + totalRows + " entries";
+            return startRow + " - " + endRow + " of " + totalRows;
         },
+        paginationButtonCount: 0,
         paginationMode: "remote", //enable remote pagination
         sortMode: "remote",
         filterMode: "remote",
@@ -143,6 +144,17 @@
 
             return definitions;
         },
+        locale: "en-us",
+        langs: {
+            "en-us": {
+                "pagination": {
+                    "first": "|<", //text for the first page button
+                    "last": ">|",
+                    "prev": "<",
+                    "next": ">"
+                }
+            }
+        }
     });
 
     table.on("dataProcessed", function (data) {
