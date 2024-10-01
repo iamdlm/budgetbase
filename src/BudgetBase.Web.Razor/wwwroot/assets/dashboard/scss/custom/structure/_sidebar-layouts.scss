@@ -5,7 +5,7 @@
     height: 100vh;
 
     .sidebar-wrapper {
-        border: 1px solid $border-zinc-200;
+        border-right: 1px solid $border-zinc-200;
         background-color: $sidebar-white-bg;
         transition: all 0.3s ease;
         width: 300px;
@@ -118,7 +118,7 @@
                         outline: none;
                     }
 
-                    @each $name, 
+                    @each $name,
                     $value in $theme-colors {
                         .svg-wrapper {
                             width: 36px;
@@ -386,7 +386,7 @@
 
             .header-bar {
                 background: $top-header-white-bg;
-                height: 72px;
+                height: 71px;
                 border-bottom: 1px solid $border-zinc-200;
                 position: relative;
                 justify-content: space-between;
@@ -540,7 +540,7 @@
                     > a:after {
                         transform: rotate(-180deg);
                     }
-    
+
                     &.active {
                         > a:after {
                             transform: rotate(-90deg);
