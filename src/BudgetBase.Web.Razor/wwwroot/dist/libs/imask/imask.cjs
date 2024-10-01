@@ -551,6 +551,7 @@ class InputMask {
     this._bindEvents();
 
     // refresh
+    this.updateValue();
     this._onChange();
   }
   maskEquals(mask) {
@@ -2561,6 +2562,10 @@ class MaskedRange extends MaskedPattern {
 }
 IMask.MaskedRange = MaskedRange;
 
+const DefaultPattern = 'd{.}`m{.}`Y';
+
+// Make format and parse required when pattern is provided
+
 /** Date mask */
 class MaskedDate extends MaskedPattern {
   static extractPatternOptions(opts) {
@@ -2675,7 +2680,7 @@ MaskedDate.GET_DEFAULT_BLOCKS = () => ({
 MaskedDate.DEFAULTS = {
   ...MaskedPattern.DEFAULTS,
   mask: Date,
-  pattern: 'd{.}`m{.}`Y',
+  pattern: DefaultPattern,
   format: (date, masked) => {
     if (!date) return '';
     const day = String(date.getDate()).padStart(2, '0');
