@@ -12,8 +12,11 @@
 }
 <link href="@Url.Content("~/dist/libs/tabulator-tables/css/tabulator_bootstrap5.min.css")" rel="stylesheet">
 <link href="@Url.Content("~/dist/libs/tabulator-tables/css/tabulator_custom.min.css")" rel="stylesheet">
-<div class="d-flex justify-content-between p-4 shadow rounded-top">
-    <div class="col-sm-12 col-md-6">
+<div class="d-flex p-4 shadow rounded-top">
+    <div class="col-sm-6 col-md-3">
+        <input type="text" id="fSearch" name="fSearch" class="form-control" placeholder="Search...">
+    </div>
+    <div class="col-sm-12 col-md-6 d-flex justify-content-end align-items-center ms-auto gap-1">
         <a asp-page="Create" asp-route-groupId="@Context.Request.Query["groupId"]" class="btn btn-dark">Create New</a>
         @if (allowImport)
         {
@@ -24,12 +27,9 @@
             <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#applyRules" class="btn btn-dark">Apply Rules</a>
         }
     </div>
-    <div class="col-sm-6 col-md-3 d-flex justify-content-end align-items-center ms-auto">
-        <input type="text" id="fSearch" name="fSearch" class="form-control" placeholder="Search...">
-    </div>
 </div>
 <div class="shadow">
-    <div id="tabulator" class=""></div>   
+    <div id="tabulator" class=""></div>
 </div>
 <div class="modal" id="applyRules" tabindex="-1" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
