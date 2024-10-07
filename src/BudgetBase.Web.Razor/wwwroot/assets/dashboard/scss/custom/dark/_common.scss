@@ -126,6 +126,12 @@
                 background-color: #242428 !important;
             }
         }
+
+        .tabulator-placeholder {
+            .tabulator-placeholder-contents {
+                background-color: $table-bg !important;
+            }
+        }
     }
 
     .tabulator-footer {
