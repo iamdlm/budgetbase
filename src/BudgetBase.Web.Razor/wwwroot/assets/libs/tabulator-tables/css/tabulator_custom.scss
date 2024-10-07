@@ -12,6 +12,14 @@
                 padding-right: 1.5rem;
                 padding-left: 1.5rem;
             }
+
+            &.tabulator-sortable {
+                &.tabulator-col-sorter-element {
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
         }
     }
 
@@ -24,6 +32,12 @@
             .tabulator-cell {
                 padding-right: 1.5rem;
                 padding-left: 1.5rem;
+            }
+        }
+
+        .tabulator-selectable {
+            &:hover {
+                background-color: #e4e4e7;
             }
         }
     }

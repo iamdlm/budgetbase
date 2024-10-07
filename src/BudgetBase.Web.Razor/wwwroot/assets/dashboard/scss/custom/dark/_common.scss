@@ -98,24 +98,38 @@
 
 .tabulator {
     .tabulator-header {
-        background-color: $body-bg !important;
+        background-color: $table-bg !important;
         border-bottom: 1px solid $border-zinc-200 !important;
         color: $muted !important;
 
         .tabulator-col {
-            background-color: $body-bg !important;
+            background-color: $table-bg !important;
+
+            &.tabulator-sortable {
+                &.tabulator-col-sorter-element {
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
         }
     }
 
     .tabulator-tableholder {
         .tabulator-row {
-            background-color: $body-bg !important;
+            background-color: $table-bg !important;
             border-bottom: 1px solid $border-zinc-200 !important;
+        }
+
+        .tabulator-selectable {
+            &:hover {
+                background-color: #242428 !important;
+            }
         }
     }
 
     .tabulator-footer {
-        background-color: $body-bg !important;
+        background-color: $table-bg !important;
         color: $muted !important;
 
         .tabulator-page {
