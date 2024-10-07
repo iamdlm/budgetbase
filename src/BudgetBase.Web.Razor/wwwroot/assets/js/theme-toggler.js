@@ -9,7 +9,7 @@
 
     // Function to fetch theme preference from server
     function fetchThemePreference() {
-        if (themeToggle.dataset.authenticated === 'true') {
+        if (themeToggle && themeToggle.dataset.authenticated === 'true') {
             fetch("/index?handler=GetThemePreference")
                 .then(response => response.json())
                 .then(data => {
@@ -33,22 +33,23 @@
         setTheme(currentTheme);
         updateThemeButton(currentTheme);
     }
+    if (themeToggle) {
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', function () {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
 
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', function () {
-        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        // Save to local storage
-        localStorage.setItem('theme', currentTheme);
+            // Save to local storage
+            localStorage.setItem('theme', currentTheme);
 
-        // If user is authenticated, save preference server-side
-        if (themeToggle.dataset.authenticated === 'true') {
-            updateThemePreference(currentTheme);
-        }
+            // If user is authenticated, save preference server-side
+            if (themeToggle.dataset.authenticated === 'true') {
+                updateThemePreference(currentTheme);
+            }
 
-        setTheme(currentTheme);
-        updateThemeButton(currentTheme);
-    });
+            setTheme(currentTheme);
+            updateThemeButton(currentTheme);
+        });
+    }
 
     // Fetch theme preference on page load
     fetchThemePreference();
@@ -89,7 +90,7 @@
         // Construct FormData
         const formData = new FormData();
         const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
-        
+
         // Append the RequestVerificationToken to the FormData
         formData.append('__RequestVerificationToken', token);
         formData.append('theme', theme);
