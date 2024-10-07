@@ -47,12 +47,12 @@
     .title {
         letter-spacing: 0.5px;
         font-size: 30px !important;
-        
+
         @media (max-width: 768px) {
             font-size: 24px !important;
         }
     }
-} 
+}
 
 .para-desc {
     max-width: 600px;
@@ -60,6 +60,16 @@
 .mt-100 {
     margin-top: 100px;
 }
+.mb-100 {
+    margin-bottom: 100px;
+}
+.pt-100 {
+    padding-top: 100px;
+}
+.pb-100 {
+    padding-bottom: 100px;
+}
+
 //Shapes
 .shape {
     position: absolute;
@@ -87,12 +97,12 @@
             height: 60px;
         }
     }
-    
+
     @media (max-width: 425px) {
         bottom: -4px;
     }
 }
-  
+
 @media (min-width: 768px) {
     .margin-top-100 {
         margin-top: 100px;
@@ -101,7 +111,7 @@
 @media (max-width: 768px) {
     .mt-60 {
         margin-top: 60px;
-    }   
+    }
 }
 
 /*********************************/
@@ -117,9 +127,9 @@
     .fea {
         height: 20px;
     }
-    
+
     @media (min-width: 768px) {
-        margin: 0 auto;        
+        margin: 0 auto;
     }
 }
 .timeline-page {
@@ -149,17 +159,17 @@
                 transform: rotate(45deg);
             }
         }
-        .date-label-left {            
+        .date-label-left {
             float: right;
             margin-right: 15px;
-            &:after {                
+            &:after {
                 right: -34px;
             }
-        }        
+        }
         .duration-right {
             float: left;
             margin-left: 15px;
-            &:after {                
+            &:after {
                 left: -34px;
             }
         }
@@ -249,7 +259,7 @@
     }
 }
 
-[class^=uil-], 
+[class^=uil-],
 [class*=" uil-"] {
     &:before {
         margin: 0;
@@ -354,4 +364,24 @@ $value in $theme-colors {
     .flex-1 {
         flex: 1;
     }
+}
+
+.border-zinc-200 {
+    border: 1px solid $border-zinc-200;
+}
+
+.border-zinc-700 {
+    border: 1px solid $border-zinc-700;
+}
+
+.border-bottom-zinc-200 {
+    border-bottom: 1px solid $border-zinc-200;
+}
+
+.border-bottom-zinc-700 {
+    border-bottom: 1px solid $border-zinc-700;
+}
+
+.color-muted {
+    color: $color-muted;
 }

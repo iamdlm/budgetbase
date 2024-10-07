@@ -7,27 +7,52 @@
     const themeToggle = document.getElementById('theme-toggle');
     let currentTheme = localStorage.getItem('theme') || (new Date().getHours() > 18 || new Date().getHours() < 6 ? 'dark' : 'light');
 
-    // Set the initial theme
-    setTheme(currentTheme);
-
-    // Set the initial button icon
-    updateThemeButton(currentTheme);
-
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', function () {
-        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        // Save to local storage
-        localStorage.setItem('theme', currentTheme);
-
-        // If user is authenticated, save preference server-side
-        if (themeToggle.dataset.authenticated === 'true') {
-            updateThemePreference(currentTheme);
+    // Function to fetch theme preference from server
+    function fetchThemePreference() {
+        if (themeToggle && themeToggle.dataset.authenticated === 'true') {
+            fetch("/index?handler=GetThemePreference")
+                .then(response => response.json())
+                .then(data => {
+                    currentTheme = data.theme;
+                    localStorage.setItem('theme', currentTheme);
+                    setTheme(currentTheme);
+                    updateThemeButton(currentTheme);
+                })
+                .catch(error => {
+                    console.error('Error fetching theme preference:', error);
+                    setDefaultTheme();
+                });
+        } else {
+            setDefaultTheme();
         }
+    }
 
+    // Function to set default theme
+    function setDefaultTheme() {
+        currentTheme = localStorage.getItem('theme') || (new Date().getHours() > 18 || new Date().getHours() < 6 ? 'dark' : 'light');
         setTheme(currentTheme);
         updateThemeButton(currentTheme);
-    });
+    }
+    if (themeToggle) {
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', function () {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            // Save to local storage
+            localStorage.setItem('theme', currentTheme);
+
+            // If user is authenticated, save preference server-side
+            if (themeToggle.dataset.authenticated === 'true') {
+                updateThemePreference(currentTheme);
+            }
+
+            setTheme(currentTheme);
+            updateThemeButton(currentTheme);
+        });
+    }
+
+    // Fetch theme preference on page load
+    fetchThemePreference();
 
     // Toggle theme function
     function setTheme(theme) {
@@ -65,7 +90,7 @@
         // Construct FormData
         const formData = new FormData();
         const token = document.querySelector('input[name="__RequestVerificationToken"]').value;
-        
+
         // Append the RequestVerificationToken to the FormData
         formData.append('__RequestVerificationToken', token);
         formData.append('theme', theme);

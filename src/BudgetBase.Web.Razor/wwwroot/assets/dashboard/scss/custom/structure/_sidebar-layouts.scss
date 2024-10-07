@@ -5,7 +5,7 @@
     height: 100vh;
 
     .sidebar-wrapper {
-        box-shadow: $shadow;
+        border-right: 1px solid $border-zinc-200;
         background-color: $sidebar-white-bg;
         transition: all 0.3s ease;
         width: 300px;
@@ -53,7 +53,7 @@
             padding: 10px 20px;
             display: flex;
             align-items: center;
-            height: 71px;
+            height: 70px;
 
             > a {
                 text-transform: uppercase;
@@ -79,6 +79,7 @@
         }
 
         .sidebar-menu {
+            font-size: 14px;
             padding: 16px 0;
 
             .header-menu {
@@ -117,17 +118,20 @@
                         outline: none;
                     }
 
-                    .svg-wrapper {
-                        width: 36px;
-                        height: 36px;
-                        background-color: $sidebar-icon-bg;
-                        display: inline-flex !important;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 16px;
-                        text-align: center;
-                        border-radius: 5px;
-                        transition: all 0.3s ease;
+                    @each $name,
+                    $value in $theme-colors {
+                        .svg-wrapper {
+                            width: 36px;
+                            height: 36px;
+                            background-color: rgba($value, 0.04) !important;
+                            display: inline-flex !important;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 16px;
+                            text-align: center;
+                            border-radius: 5px;
+                            transition: all 0.3s ease;
+                        }
                     }
                 }
 
@@ -141,14 +145,20 @@
 
             .sidebar-dropdown {
                 > a:after {
-                    content: "\F0142" !important;
+                    background-image: $svg-dark;
+                    background-size: cover;
+                    content: "" !important;
                     color: $dark;
+                    display: block;
                     font-family: 'Material Design Icons';
                     font-size: 14px;
+                    height: 10px;
+                    margin-top: 5px;
                     position: absolute;
                     right: 15px;
                     top: 17px;
                     transition: all 0.3s ease;
+                    width: 10px;
                 }
 
                 &.active {
@@ -161,7 +171,7 @@
                 &:hover,
                 &.active {
                     > a:after {
-                        color: $sidebar-primary;
+                        color: $sidebar-dark;
                     }
                 }
 
@@ -177,12 +187,14 @@
 
                             a {
                                 &:before {
-                                    content: "\F09DF" !important;
+                                    content: "\2022" !important;
                                     color: $dark;
                                     font-family: 'Material Design Icons';
                                     margin-right: 4px;
                                     font-size: 16px;
                                     transition: all 0.3s ease;
+                                    text-align: center;
+                                    width: 16px;
                                 }
 
                                 .badge,
@@ -227,12 +239,14 @@
                     display: inline-block;
                 }
 
+                .l-dark,
                 .logo-dark-mode {
                     display: none !important;
                 }
 
+                .l-light,
                 .logo-light-mode {
-                    display: none !important;
+                    display: block !important;
                 }
             }
 
@@ -314,15 +328,15 @@
 
         .sidebar-header,
         .sidebar-menu {
-            border-top: 1px solid $gray-200;
+            border-top: 1px solid $border-zinc-200;
         }
 
         .sidebar-header .user-info .user-role,
         .sidebar-header .user-info .user-status,
         .sidebar-brand > a,
         .sidebar-menu li a {
-            color: $sidebar-text-color;
-            font-weight: 600;
+            color: $muted;
+            font-weight: normal;
         }
 
         .sidebar-menu li:hover > a,
@@ -334,7 +348,7 @@
         .sidebar-menu .sidebar-dropdown.active > a,
         .sidebar-header .user-info,
         .sidebar-brand > a:hover {
-            color: $sidebar-primary !important;
+            color: $dark !important;
         }
 
         .sidebar-brand {
@@ -342,12 +356,14 @@
                 display: none;
             }
 
+            .l-dark,
             .logo-dark-mode {
-                display: none;
+                display: none !important;
             }
 
+            l-light,
             .logo-light-mode {
-                display: inline-block;
+                display: inline-block !important;
             }
         }
     }
@@ -371,7 +387,7 @@
             .header-bar {
                 background: $top-header-white-bg;
                 height: 71px;
-                box-shadow: $shadow;
+                border-bottom: 1px solid $border-zinc-200;
                 position: relative;
                 justify-content: space-between;
                 align-items: center;
@@ -399,12 +415,14 @@
                     .big {
                         display: none;
 
+                        .l-dark,
                         .logo-dark-mode {
-                            display: none;
+                            display: none !important;
                         }
 
+                        .l-light,
                         .logo-light-mode {
-                            display: inline-block;
+                            display: inline-block !important;
                         }
 
                         @media (min-width: 768px) and (max-width: 1024px) {
@@ -522,7 +540,7 @@
                     > a:after {
                         transform: rotate(-180deg);
                     }
-    
+
                     &.active {
                         > a:after {
                             transform: rotate(-90deg);
@@ -541,6 +559,22 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+.form-signin {
+    form {
+        a {
+            .l-light,
+            .logo-light-mode {
+                display: block !important;
+            }
+
+            .l-dark,
+            .logo-dark-mode {
+                display: none !important;
             }
         }
     }

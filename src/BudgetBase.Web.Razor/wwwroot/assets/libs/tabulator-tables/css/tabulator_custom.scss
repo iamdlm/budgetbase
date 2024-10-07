@@ -1,0 +1,83 @@
+﻿.tabulator {
+    font-size: 14px;
+
+    .tabulator-header {
+        border-top: none;
+        border-bottom: 1px solid #e9ecef;
+        font-weight: normal;
+        color: #71717a;
+
+        .tabulator-col {
+            .tabulator-col-content {
+                padding-right: 1.5rem;
+                padding-left: 1.5rem;
+            }
+
+            &.tabulator-sortable {
+                &.tabulator-col-sorter-element {
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    .tabulator-tableholder {
+        .tabulator-row {
+            background-color: #fff;
+            cursor: auto;
+            border-bottom: 1px solid #e9ecef;
+
+            .tabulator-cell {
+                padding-right: 1.5rem;
+                padding-left: 1.5rem;
+            }
+        }
+
+        .tabulator-selectable {
+            &:hover {
+                background-color: #e4e4e7;
+            }
+        }
+
+        .tabulator-placeholder {
+            .tabulator-placeholder-contents {
+                background-color: #fff;
+            }
+        }
+    }
+
+    .tabulator-footer {
+        background-color: #fff;
+        border-top: none;
+        color: #71717a;
+
+        .tabulator-footer-contents {
+            padding-left: 0;
+            padding-right: 0;
+            padding: 1.5rem;
+        }
+
+        .tabulator-page {
+            background-color: transparent !important;
+            border-color: transparent !important;
+            padding: 2px 5px;
+
+            &.active {
+                background-color: transparent !important;
+                border-color: transparent !important;
+            }
+
+            &:not(.disabled) {
+                background-color: transparent !important;
+                border-color: transparent !important;
+
+                &:hover {
+                    background-color: #adb5bd !important;
+                    color: #3c4858;
+                }
+            }
+        }
+    }
+}

@@ -15,7 +15,6 @@
     <link href="~/dist/dashboard/css/bootstrap-dark.min.css" id="bootstrap-dark" rel="stylesheet" type="text/css" />
     <link href="~/dist/dashboard/css/style.min.css" id="style-light" rel="stylesheet" type="text/css" />
     <link href="~/dist/dashboard/css/style-dark.min.css" id="style-dark" rel="stylesheet" type="text/css" />
-    <link href="~/dist/css/dashboard.custom.min.css" class="theme-opt" rel="stylesheet" type="text/css" />
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
@@ -23,14 +22,13 @@
         <partial name="_SidebarDark" />
 
         <!-- Start Page Content -->
-        <main class="page-content bg-light">
+        <main class="page-content">
             <partial name="_TopHeader" model="Model.ThemeOpt" />
             <div class="container-fluid">
                 <div class="layout-specing">
                     @RenderBody()
                 </div>
-            </div>
-            <partial name="_Footer" />
+            </div>            
         </main>
     </div>
     <!-- javascript -->

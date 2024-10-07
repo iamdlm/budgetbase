@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-md-12 mt-4">
         <div class="card rounded shadow">
-            <div class="p-4 border-bottom">
+            <div class="p-4 border-bottom-zinc-200">
                 <h5 class="title mb-0">Rule</h5>
             </div>
             <div class="card-body">
@@ -47,7 +47,7 @@
                     <form method="post">
                         <input type="hidden" asp-for="Rule.Id" />
                         <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modal-rule" class="btn btn-danger m-1">Delete</a>
-                        <a class="btn btn-outline-primary" asp-page="./Index" asp-route-groupId="@Request.Query["groupId"]">Back to List</a>
+                        <a class="btn btn-outline-dark" asp-page="./Index" asp-route-groupId="@Request.Query["groupId"]">Back to List</a>
                     </form>
                 </div>
             </div>

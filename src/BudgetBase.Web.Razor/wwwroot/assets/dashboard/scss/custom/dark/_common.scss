@@ -5,24 +5,14 @@
 .page-wrapper {
     .sidebar-wrapper {
         .sidebar-brand {
+            .l-light,
             .logo-dark-mode {
-                display: inline-block;
+                display: block !important;
             }
+
+            .l-dark,
             .logo-light-mode {
-                display: none;
-            }
-        }
-        &.sidebar-colored {
-            .sidebar-brand {
-                .sidebar-colored {
-                    display: inline-block;
-                }
-                .logo-dark-mode {
-                    display: none !important;
-                }
-                .logo-light-mode {
-                    display: none !important;
-                }
+                display: none !important;
             }
         }
     }
@@ -32,11 +22,14 @@
             .header-bar {
                 .logo-icon {
                     .big {
+                        .l-light,
                         .logo-dark-mode {
-                            display: inline-block;
+                            display: block !important;
                         }
+
+                        .l-dark,
                         .logo-light-mode {
-                            display: none;
+                            display: none !important;
                         }
                     }
                 }
@@ -51,6 +44,7 @@
     .t-ltr-dark {
         display: none;
     }
+
     .t-light,
     .t-rtl-dark {
         display: inline-block;
@@ -63,23 +57,102 @@
         .t-ltr-light {
             display: none;
         }
+
         .t-ltr-dark {
             display: inline-block;
         }
     }
 }
-
 //Offcanvas
 .offcanvas {
     .offcanvas-header {
         .dark-version {
             display: inline-block;
         }
+
         .light-version {
             display: none;
         }
+
         .btn-close {
             color: $dark;
+        }
+    }
+}
+
+.form-signin {
+    form {
+        a {
+            .l-light,
+            .logo-dark-mode {
+                display: block !important;
+            }
+
+            .l-dark,
+            .logo-light-mode {
+                display: none !important;
+            }
+        }
+    }
+}
+
+.tabulator {
+    .tabulator-header {
+        background-color: $table-bg !important;
+        border-bottom: 1px solid $border-zinc-200 !important;
+        color: $muted !important;
+
+        .tabulator-col {
+            background-color: $table-bg !important;
+
+            &.tabulator-sortable {
+                &.tabulator-col-sorter-element {
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+
+    .tabulator-tableholder {
+        .tabulator-row {
+            background-color: $table-bg !important;
+            border-bottom: 1px solid $border-zinc-200 !important;
+        }
+
+        .tabulator-selectable {
+            &:hover {
+                background-color: #242428 !important;
+            }
+        }
+
+        .tabulator-placeholder {
+            .tabulator-placeholder-contents {
+                background-color: $table-bg !important;
+            }
+        }
+    }
+
+    .tabulator-footer {
+        background-color: $table-bg !important;
+        color: $muted !important;
+
+        .tabulator-page {
+            color: $dark !important;
+
+            &.active {
+                background-color: #27272a !important;
+                border-color: transparent !important;
+            }
+
+            &:not(.disabled) {
+                &:hover {
+                    background-color: #27272a !important;
+                    border-color: transparent !important;
+                    color: $dark !important;
+                }
+            }
         }
     }
 }

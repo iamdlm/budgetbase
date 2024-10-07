@@ -5,7 +5,7 @@
 @Html.AntiForgeryToken()
 <div class="d-flex align-items-center justify-content-between">
     <div>
-        <h5 class="mb-0">Dashboard</h5>
+        <h5 class="mb-0">Welcome back</h5>
     </div>
 
     <div class="mb-0 position-relative">
@@ -21,7 +21,7 @@
 
 <div class="row row-cols-xl-5 row-cols-md-2 row-cols-1">
     <div class="col mt-4">
-        <div class="features feature-primary d-flex justify-content-between align-items-center rounded shadow p-3">
+        <div class="features feature-dark d-flex justify-content-between align-items-center border-zinc-200 rounded p-3">
             <div class="d-flex align-items-center">
                 <div class="icon text-center rounded-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="30">
@@ -29,17 +29,15 @@
                     </svg>
                 </div>
                 <div class="flex-1 ms-3">
-                    <h6 class="mb-0 text-muted">Net</h6>
+                    <span class="mb-0 color-muted fs-14">Net</span>
                     <p class="fs-5 text-dark fw-bold mb-0"><span id="dashboard-net">0</span></p>
                 </div>
             </div>
-
-            <span class="text-muted"><i class="uil uil-arrow-growth"></i> 0.0%</span>
         </div>
     </div><!--end col-->
 
     <div class="col mt-4">
-        <div class="features feature-primary d-flex justify-content-between align-items-center rounded shadow p-3">
+        <div class="features feature-dark d-flex justify-content-between align-items-center border-zinc-200 rounded p-3">
             <div class="d-flex align-items-center">
                 <div class="icon text-center rounded-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="30">
@@ -47,17 +45,15 @@
                     </svg>
                 </div>
                 <div class="flex-1 ms-3">
-                    <h6 class="mb-0 text-muted">Income</h6>
+                    <span class="mb-0 color-muted fs-14">Income</span>
                     <p class="fs-5 text-dark fw-bold mb-0"><span id="dashboard-income">0</span></p>
                 </div>
             </div>
-
-            <span class="text-muted"><i class="uil uil-chart-down"></i> 0.0%</span>
         </div>
     </div><!--end col-->
 
     <div class="col mt-4">
-        <div class="features feature-primary d-flex justify-content-between align-items-center rounded shadow p-3">
+        <div class="features feature-dark d-flex justify-content-between align-items-center border-zinc-200 rounded p-3">
             <div class="d-flex align-items-center">
                 <div class="icon text-center rounded-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="30">
@@ -65,17 +61,15 @@
                     </svg>
                 </div>
                 <div class="flex-1 ms-3">
-                    <h6 class="mb-0 text-muted">Expenses</h6>
+                    <span class="mb-0 color-muted fs-14">Expenses</span>
                     <p class="fs-5 text-dark fw-bold mb-0"><span id="dashboard-expenses">0</span></p>
                 </div>
             </div>
-
-            <span class="text-muted"><i class="uil uil-arrow-growth"></i> 0.0%</span>
         </div>
     </div><!--end col-->
 
     <div class="col mt-4">
-        <div class="features feature-primary d-flex justify-content-between align-items-center rounded shadow p-3">
+        <div class="features feature-dark d-flex justify-content-between align-items-center border-zinc-200 rounded p-3">
             <div class="d-flex align-items-center">
                 <div class="icon text-center rounded-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="30">
@@ -84,17 +78,15 @@
 
                 </div>
                 <div class="flex-1 ms-3">
-                    <h6 class="mb-0 text-muted">Transfers</h6>
+                    <span class="mb-0 color-muted fs-14">Transfers</span>
                     <p class="fs-5 text-dark fw-bold mb-0"><span id="dashboard-transfers">0</span></p>
                 </div>
             </div>
-
-            <span class="text-muted"><i class="uil uil-analysis"></i> 0.0%</span>
         </div>
     </div><!--end col-->
 
     <div class="col mt-4">
-        <div class="features feature-primary d-flex justify-content-between align-items-center rounded shadow p-3">
+        <div class="features feature-dark d-flex justify-content-between align-items-center border-zinc-200 rounded p-3">
             <div class="d-flex align-items-center">
                 <div class="icon text-center rounded-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="30">
@@ -102,22 +94,20 @@
                     </svg>
                 </div>
                 <div class="flex-1 ms-3">
-                    <h6 class="mb-0 text-muted">Uncategorized</h6>
+                    <span class="mb-0 color-muted fs-14">Uncategorized</span>
                     <p class="fs-5 text-dark fw-bold mb-0"><span id="dashboard-uncategorized">0</span></p>
                 </div>
             </div>
-
-            <span class="text-muted"><i class="uil uil-chart-down"></i> 0.0%</span>
         </div>
     </div><!--end col-->
 </div><!--end row-->
 
 <div class="row">
     <div class="col-xl-8 col-lg-7 mt-4 rounded">
-        <div class="card h-100 shadow border-0">
-            <div class="p-4 border-bottom">
+        <div class="card h-100 border-zinc-200">
+            <div class="p-4 border-bottom-zinc-200">
                 <div class="d-flex justify-content-between">
-                    <h6 class="mb-0">Income & Expenses by Category</h6>
+                    <span class="mb-0 color-muted fs-14">Income & Expenses by Category</span>
                 </div>
             </div>
             <div id="pl-chart" class="p-4"></div>
@@ -125,10 +115,10 @@
     </div><!--end col-->
 
     <div class="col-xl-4 col-lg-5 mt-4 rounded">
-        <div class="card h-100 shadow border-0">
-            <div class="p-4 border-bottom">
+        <div class="card h-100 border-zinc-200">
+            <div class="p-4 border-bottom-zinc-200">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h6 class="mb-0">Distribution by Category</h6>
+                    <span class="mb-0 color-muted fs-14">Distribution by Category</span>
                     <div class="mb-0 position-relative">
                         <select class="form-select form-control" id="pietype" onchange="getPieData();">
                             <option value="income" selected>Income</option>
@@ -146,10 +136,10 @@
 
 <div class="row">
     <div class="col-xl-4 col-lg-5 mt-4 rounded">
-        <div class="card h-100 shadow border-0">
-            <div class="p-4 border-bottom">
+        <div class="card h-100 border-zinc-200">
+            <div class="p-4 border-bottom-zinc-200">
                 <div class="d-flex justify-content-between align-items-center">
-                    <h6 class="mb-0">Recurring Transactions</h6>
+                    <span class="mb-0 color-muted fs-14">Recurring Transactions</span>
                     <div class="mb-0 position-relative">
                         <select class="form-select form-control" id="rectype" onchange="getRecurringData();">
                             <option value="income" selected>Income</option>
@@ -165,8 +155,8 @@
                     <table class="table mb-0 table-center">
                         <thead>
                             <tr>
-                                <th scope="col" class="border-bottom">Frequency</th>
-                                <th scope="col" class="border-bottom">Total</th>
+                                <th scope="col" class="border-bottom-zinc-200">Frequency</th>
+                                <th scope="col" class="border-bottom-zinc-200">Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -182,10 +172,10 @@
     </div><!--end col-->
 
     <div class="col-xl-4 col-lg-5 mt-4 rounded">
-        <div class="card h-100 shadow border-0">
-            <div class="p-4 border-bottom">
+        <div class="card h-100 border-zinc-200">
+            <div class="p-4 border-bottom-zinc-200">
                 <div class="d-flex justify-content-between">
-                    <h6 class="mb-0">Budget</h6>
+                    <span class="mb-0 color-muted fs-14">Budget</span>
                     <span class="badge rounded-pill bg-soft-primary">Coming Soon</span>
                 </div>
             </div>
@@ -195,10 +185,10 @@
     </div><!--end col-->
 
     <div class="col-xl-4 col-lg-5 mt-4 rounded">
-        <div class="card h-100 shadow border-0">
-            <div class="p-4 border-bottom">
+        <div class="card h-100 border-zinc-200">
+            <div class="p-4 border-bottom-zinc-200">
                 <div class="d-flex align-items-center gap-1">
-                    <h6 class="mb-0">50/30/20 Principle</h6>
+                    <span class="mb-0 color-muted fs-14">50/30/20 Principle</span>
                     <a href="javascript:void" data-bs-toggle="modal" data-bs-target="#sim-popup">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="25">
                             <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
@@ -214,15 +204,15 @@
 </div><!--end row-->
 <div class="modal fade" id="sim-popup" tabindex="-1" aria-labelledby="sim-title" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content rounded shadow border-0">
-            <div class="modal-header border-bottom">
+        <div class="modal-content rounded border-zinc-200">
+            <div class="modal-header border-bottom-zinc-200">
                 <h5 class="modal-title" id="sim-title">50/30/20 Principle</h5>
                 <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" id="close-modal"><i class="uil uil-times fs-4 text-dark"></i></button>
             </div>
             <div class="modal-body">
                 <p class="text-muted mb-0">The 50/30/20 rule is a budgeting technique that involves dividing your money into three primary categories based on your after-tax income (i.e., your take-home pay): 50% to needs, 30% to wants and 20% to savings and debt payments.</p>
                 <p class="text-muted mb-0">This chart displays the total income amount, in the selected period, distributed by those three categories.</p>
-            </div> 
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
@@ -237,5 +227,5 @@
     <script type="text/javascript" src="~/dist/js/chart.pie.js" asp-append-version="true"></script>
     <script type="text/javascript" src="~/dist/js/chart.rec.js" asp-append-version="true"></script>
     <script type="text/javascript" src="~/dist/js/chart.bg.js" asp-append-version="true"></script>
-    <script type="text/javascript" src="~/dist/js/chart.refresh.js" asp-append-version="true"></script>    
+    <script type="text/javascript" src="~/dist/js/chart.refresh.js" asp-append-version="true"></script>
 }

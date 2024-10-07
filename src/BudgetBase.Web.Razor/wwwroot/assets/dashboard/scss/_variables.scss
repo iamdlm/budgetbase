@@ -11,7 +11,7 @@ $font-family-secondary:     ui-sans-serif, system-ui, sans-serif;
 
 
 
-$muted:                     #8492a6;
+$muted:                     #71717a;
 $dark:                      #3c4858;
 $btn-color:                 #ffffff;
 $body-color:                #161c2d;
@@ -113,7 +113,7 @@ $gray-500: #adb5bd;
 $gray-600: #6c757d;
 $gray-700: #495057;
 $gray-800: #343a40;
-$gray-900: #212529;
+$gray-900: #18181b;
 $black:    #000000;
 // scss-docs-end gray-color-variables
 
@@ -611,8 +611,11 @@ $border-widths: (
   5: 5px
 );
 
+$border-zinc-200: #e4e4e7;
+$border-zinc-700: #e4e4e7;
+
 $border-style:                solid;
-$border-color:                $gray-200;
+$border-color:                $border-zinc-200;
 $border-color-translucent:    rgba($black, .175);
 // scss-docs-end border-variables
 
@@ -1756,3 +1759,7 @@ $kbd-bg:                            var(--#{$prefix}body-color);
 $nested-kbd-font-weight:            null; // Deprecated in v5.2.0, removing in v6
 
 $pre-color:                         null;
+
+$svg-dark: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgZmlsbD0nIzE4MTgxYicgY2xhc3M9J3ctNiBoLTYnPjxwYXRoIGZpbGwtcnVsZT0nZXZlbm9kZCcgZD0nTTE2LjI4IDExLjQ3YS43NS43NSAwIDAgMSAwIDEuMDZsLTcuNSA3LjVhLjc1Ljc1IDAgMCAxLTEuMDYtMS4wNkwxNC42OSAxMiA3LjcyIDUuMDNhLjc1Ljc1IDAgMCAxIDEuMDYtMS4wNmw3LjUgNy41WicgY2xpcC1ydWxlPSdldmVub2RkJyAvPjwvc3ZnPg==");
+
+$color-muted: #71717a;

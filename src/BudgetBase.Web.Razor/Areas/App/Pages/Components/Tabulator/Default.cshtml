@@ -11,25 +11,25 @@
 
 }
 <link href="@Url.Content("~/dist/libs/tabulator-tables/css/tabulator_bootstrap5.min.css")" rel="stylesheet">
-<link href="@Url.Content("~/dist/css/tabulator.custom.min.css")" rel="stylesheet">
-<div class="d-flex justify-content-between p-4 shadow rounded-top">
-    <div class="col-sm-12 col-md-6">
-        <a asp-page="Create" asp-route-groupId="@Context.Request.Query["groupId"]" class="btn btn-primary">Create New</a>
+<link href="@Url.Content("~/dist/libs/tabulator-tables/css/tabulator_custom.min.css")" rel="stylesheet">
+<div class="d-flex p-4 shadow rounded-top">
+    <div class="col-sm-6 col-md-3">
+        <input type="text" id="fSearch" name="fSearch" class="form-control" placeholder="Search...">
+    </div>
+    <div class="col-sm-12 col-md-6 d-flex justify-content-end align-items-center ms-auto gap-1">
+        <a asp-page="Create" asp-route-groupId="@Context.Request.Query["groupId"]" class="btn btn-dark">Create New</a>
         @if (allowImport)
         {
-            <a asp-area="App" asp-page="/Imports/Index" class="btn btn-primary">Import</a>
+            <a asp-area="App" asp-page="/Imports/Index" class="btn btn-dark">Import</a>
         }
         @if (applyRules)
         {
-            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#applyRules" class="btn btn-primary">Apply Rules</a>
+            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#applyRules" class="btn btn-dark">Apply Rules</a>
         }
-    </div>
-    <div class="col-sm-6 col-md-3 d-flex justify-content-end align-items-center ms-auto">
-        <input type="text" id="fSearch" name="fSearch" class="form-control" placeholder="Search...">
     </div>
 </div>
 <div class="shadow">
-    <div id="tabulator" class=""></div>   
+    <div id="tabulator" class=""></div>
 </div>
 <div class="modal" id="applyRules" tabindex="-1" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
@@ -48,7 +48,7 @@
                         <p id="rules-text" class="text-muted">This will update all transaction categories that are not already set, according to the specified rules.</p>
                         <p id="rules-status" class="text-danger hide">An error occured, please try again. If the problem persists, contact our support team.</p>
                         <div class="mt-4">
-                            <button class="btn btn-primary" onclick="applyRules()">Continue</button>
+                            <button class="btn btn-dark" onclick="applyRules()">Continue</button>
                             <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
 
         return `
                                     <a class="btn btn-icon btn-outline-success btn-sm p-2" href="${detailsUrl}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" /></svg></a>
-                                    <a class="btn btn-icon btn-outline-primary btn-sm p-2" href="${editUrl}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" /></svg></a>
+                                    <a class="btn btn-icon btn-outline-dark btn-sm p-2" href="${editUrl}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125" /></svg></a>
                                     <a class="btn btn-icon btn-outline-danger btn-sm p-2" href="${deleteUrl}"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6" height="15"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg></a>
                                 `;
     }
@@ -106,8 +106,9 @@
         paginationCounter: function (pageSize, currentRow, currentPage, totalRows, totalPages) {
             var startRow = (currentPage - 1) * pageSize + 1;
             var endRow = Math.min(currentPage * pageSize, totalRows);
-            return "Showing " + startRow + " to " + endRow + " of " + totalRows + " entries";
+            return startRow + " - " + endRow + " of " + totalRows;
         },
+        paginationButtonCount: 0,
         paginationMode: "remote", //enable remote pagination
         sortMode: "remote",
         filterMode: "remote",
@@ -143,6 +144,17 @@
 
             return definitions;
         },
+        locale: "en-us",
+        langs: {
+            "en-us": {
+                "pagination": {
+                    "first": "|<", //text for the first page button
+                    "last": ">|",
+                    "prev": "<",
+                    "next": ">"
+                }
+            }
+        }
     });
 
     table.on("dataProcessed", function (data) {

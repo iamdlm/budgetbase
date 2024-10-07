@@ -9,17 +9,26 @@
   <ItemGroup>
     <Compile Remove="wwwroot\assets\custom\**" />
     <Compile Remove="wwwroot\assets\icons\**" />
+    <Compile Remove="wwwroot\dist\css\dashboard\**" />
+    <Compile Remove="wwwroot\dist\css\landing\**" />
     <Content Remove="wwwroot\assets\custom\**" />
     <Content Remove="wwwroot\assets\icons\**" />
+    <Content Remove="wwwroot\dist\css\dashboard\**" />
+    <Content Remove="wwwroot\dist\css\landing\**" />
     <EmbeddedResource Remove="wwwroot\assets\custom\**" />
     <EmbeddedResource Remove="wwwroot\assets\icons\**" />
+    <EmbeddedResource Remove="wwwroot\dist\css\dashboard\**" />
+    <EmbeddedResource Remove="wwwroot\dist\css\landing\**" />
     <None Remove="wwwroot\assets\custom\**" />
     <None Remove="wwwroot\assets\icons\**" />
+    <None Remove="wwwroot\dist\css\dashboard\**" />
+    <None Remove="wwwroot\dist\css\landing\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Remove="wwwroot\assets\bootstrap-dark.scss" />
     <Content Remove="wwwroot\assets\bootstrap.scss" />
+    <Content Remove="wwwroot\assets\dashboard\scss\custom.scss" />
     <Content Remove="wwwroot\assets\icons.scss" />
     <Content Remove="wwwroot\assets\style-dark.scss" />
     <Content Remove="wwwroot\assets\style.scss" />
@@ -31,6 +40,10 @@
     <None Remove="Areas\App\Pages\Shared\SidebarDark.cshtml.css" />
     <None Remove="Areas\App\Pages\Shared\TopHeader.cshtml.css" />
     <None Remove="Areas\App\Pages\Shared\_TopHeader - Copy.cshtml.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\assets\dashboard\scss\custom.scss" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +63,7 @@
   <ItemGroup>
     <None Include="wwwroot\assets\dashboard\scss\bootstrap-dark.scss" />
     <None Include="wwwroot\assets\dashboard\scss\bootstrap.scss" />
+    <None Include="wwwroot\assets\dashboard\scss\custom.scss" />
     <None Include="wwwroot\assets\dashboard\scss\custom\components\_accordion.scss" />
     <None Include="wwwroot\assets\dashboard\scss\custom\components\_alerts.scss" />
     <None Include="wwwroot\assets\dashboard\scss\custom\components\_avatar.scss" />
