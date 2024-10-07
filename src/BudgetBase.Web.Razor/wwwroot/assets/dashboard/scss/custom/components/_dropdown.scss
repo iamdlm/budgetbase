@@ -1,6 +1,6 @@
-// 
+//
 // _dropdown.scss
-// 
+//
 
 //Dropdowns
 @each $name,
@@ -14,7 +14,7 @@ $value in $theme-colors {
                 &.focus,
                 &:focus {
                     background-color: transparent;
-                    color: #{$value} !important;
+                    color: $dark !important;
                 }
             }
         }
